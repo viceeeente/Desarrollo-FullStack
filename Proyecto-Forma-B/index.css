@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+}
+
+#main-menu{
+    display: flex;
+    height:10vh;
+    width: 100%;
+}
+
+#main-menu img{
+    height: 100%;
+    width: 5%;
+}
+
+
