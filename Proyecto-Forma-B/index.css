@@ -4,13 +4,28 @@
 
 #main-menu{
     display: flex;
+    align-items: center;
     height:10vh;
     width: 100%;
+    background-color: green;
 }
 
 #main-menu img{
     height: 100%;
     width: 5%;
+}
+
+#main-menu button{
+    border: none;
+    background-color: aliceblue;
+    height: fit-content;
+    width:fit-content;
+    padding: .5rem;
+    border-radius: 10px;
+}
+#main-menu button:hover{
+    background-color: blue;
+    color: white;
 }
 
 
