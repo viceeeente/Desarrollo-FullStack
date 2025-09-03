@@ -116,6 +116,7 @@ html, body {
 .auth-buttons {
   display: flex;
   gap: 0.5rem;
+  align-items: center;
 }
 
 .auth-buttons button {
