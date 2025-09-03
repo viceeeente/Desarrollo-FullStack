@@ -1,34 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level-UP GAMER</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="icon" href="https://pittnews.com/wp-content/uploads/2023/02/D_LevelUp_File.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Level-UP GAMER</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav id="main-menu">
-            <img src="https://pittnews.com/wp-content/uploads/2023/02/D_LevelUp_File.png" alt="icon">
-            
-            <div class="dropdown">
-                <button id="categories-btn">Categorías</button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Consolas</a></li>
-                    <li><a href="#">Juegos</a></li>
-                    <li><a href="#">Accesorios</a></li>
-                    <li><a href="#">PC Gamer</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <section id="middle-content">
-        <div class="products">
-            <div class="PC">
-                <a href="pc.html">PC</a>
-            </div>
-        </div>
-    </section>
+  <header>
+    <nav id="main-menu">
+      <img src="https://pittnews.com/wp-content/uploads/2023/02/D_LevelUp_File.png" alt="icon">
+
+      <div class="dropdown">
+        <button id="categories-btn">Categorías</button>
+        <ul class="dropdown-menu">
+          <li><a href="consolas.html">Consolas</a></li>
+          <li><a href="juegos.html">Juegos</a></li>
+          <li><a href="accesorios.html">Accesorios</a></li>
+          <li><a href="pc.html">PC Gamer</a></li>
+          <li><a href="ofertas.html">Ofertas</a></li>
+        </ul>
+      </div>
+
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar productos...">
+        <button>🔍</button>
+      </div>
+
+      <div class="auth-buttons">
+        <button id="login-btn">Login</button>
+        <button id="signup-btn">Registro</button>
+        <button id="cart-btn">
+          <img src="https://cdn-icons-png.flaticon.com/512/9341/9341730.png" alt="Carrito">
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <section class="welcome">
+    <div class="welcome-text">
+      <h2>¡Bienvenido a Level-UP GAMER!</h2>
+      <p>Misión: Proporcionar productos de alta calidad para gamers en todo Chile.</p>
+      <p>Visión: Ser la tienda online líder en productos para gamers, ofreciendo una experiencia única.</p>
+    </div>
+  </section>
+
+  <section class="shortcuts">
+    <a href="consolas.html" class="shortcut-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/141/141309.png" alt="Consolas">
+      <h3>Consolas</h3>
+    </a>
+    <a href="pc.html" class="shortcut-card">
+      <img src="https://cdn-icons-png.freepik.com/512/8674/8674466.png" alt="PC Gamer">
+      <h3>PC Gamer</h3>
+    </a>
+    <a href="juegos.html" class="shortcut-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/686/686589.png" alt="Juegos">
+      <h3>Juegos</h3>
+    </a>
+    <a href="accesorios.html" class="shortcut-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/38/38708.png" alt="Accesorios">
+      <h3>Accesorios</h3>
+    </a>
+    <a href="ofertas.html" class="shortcut-card" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/833/833314.png" alt="Ofertas">
+      <h3>Ofertas</h3>
+    </a>
+  </section>
+
 </body>
 </html>
