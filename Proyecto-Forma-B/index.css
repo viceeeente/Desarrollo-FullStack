@@ -1,69 +1,225 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+html, body {
+  height: 100%;
+  background-color: #111;
 }
 
 #main-menu {
-    display: flex;
-    align-items: center;
-    height: 10vh;
-    width: 100%;
-    background-color: green;
-    padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  width: 100%;
+  background-color: #111; 
+  padding: 0 2rem;
+  color: white;
 }
 
 #main-menu img {
-    height: 100%;
-    width: auto;
-    margin-right: 1rem;
+  height: 60px;
+  width: auto;
 }
 
-#main-menu button {
-    border: none;
-    background-color: aliceblue;
-    padding: .5rem 1rem;
-    border-radius: 10px;
-    cursor: pointer;
+#categories-btn {
+  border: none;
+  background-color: #1e1e1e;
+  color: white;
+  padding: .6rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-#main-menu button:hover {
-    background-color: blue;
-    color: white;
+#categories-btn:hover {
+  background-color: #00ff99; 
+  color: black;
 }
 
 .dropdown {
-    position: relative;
+  position: relative;
+  margin-left: 1rem;
 }
 
 .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;  
-    left: 0;
-    background-color: white;
-    min-width: 150px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-    list-style: none;
-    padding: .5rem 0;
-    z-index: 10;
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background-color: #222;
+  min-width: 180px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  list-style: none;
+  padding: .5rem 0;
+  z-index: 10;
 }
 
 .dropdown:hover .dropdown-menu {
-    display: block;
+  display: block;
 }
 
 .dropdown-menu li {
-    padding: .5rem 1rem;
+  padding: .7rem 1rem;
 }
 
 .dropdown-menu li:hover {
-    background-color: lightgray;
+  background-color: #00ff99;
 }
 
 .dropdown-menu a {
-    text-decoration: none;
-    color: black;
-    display: block;
+  text-decoration: none;
+  color: white;
+  display: block;
+  transition: 0.3s;
 }
+
+.dropdown-menu li:hover a {
+  color: #000;
+}
+
+.search-bar {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  max-width: 400px;
+  margin: 0 1rem;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 0.6rem;
+  border-radius: 8px 0 0 8px;
+  border: none;
+  outline: none;
+}
+
+.search-bar button {
+  padding: 0.6rem 1rem;
+  border: none;
+  background-color: #00ff99;
+  color: black;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search-bar button:hover {
+  background-color: #00cc77;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.auth-buttons button {
+  background-color: #007bff;
+  color: white;
+  padding: .6rem 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.auth-buttons button:hover {
+  background-color: #0056b3;
+}
+
+#cart-btn {
+  background-color: #111;
+  padding: .5rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+#cart-btn:hover {
+  background-color: #333;
+}
+
+#cart-btn img {
+  height: 30px;
+  width: auto;
+}
+
+.main-content {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, #111, #1a1a1a);
+  color: #39FF14;
+}
+
+.welcome h2 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.welcome p {
+  font-size: 1rem;
+  color: #D3D3D3;
+  max-width: 700px;
+  margin: 0.5rem auto;
+}
+
+.shortcuts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #1a1a1a;
+}
+
+.shortcut-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #222;
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 150px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.shortcut-card img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+.shortcut-card h3 a {
+  color: #39FF14;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.shortcut-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px #00ff9980;
+}
+
+.shortcut-card h3 a:hover {
+  color: #FFFFFF;
+  text-shadow: 0 0 8px #39FF14;
+}
+
