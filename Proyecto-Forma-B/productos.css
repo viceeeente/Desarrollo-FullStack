@@ -1,3 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+html, body {
+  height: 100%;
+  background-color: #111;
+}
+
+#main-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  width: 100%;
+  background-color: #111; 
+  padding: 0 2rem;
+  color: white;
+}
+
+#main-menu img {
+  height: 60px;
+  width: auto;
+}
+
+#categories-btn {
+  border: none;
+  background-color: #1e1e1e;
+  color: white;
+  padding: .6rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#categories-btn:hover {
+  background-color: #00ff99; 
+  color: black;
+}
+
+.dropdown {
+  position: relative;
+  margin-left: 1rem;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background-color: #222;
+  min-width: 180px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  list-style: none;
+  padding: .5rem 0;
+  z-index: 10;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li {
+  padding: .7rem 1rem;
+}
+
+.dropdown-menu li:hover {
+  background-color: #00ff99;
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.dropdown-menu li:hover a {
+  color: #000;
+}
+
+.search-bar {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  max-width: 400px;
+  margin: 0 1rem;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 0.6rem;
+  border-radius: 8px 0 0 8px;
+  border: none;
+  outline: none;
+}
+
+.search-bar button {
+  padding: 0.6rem 1rem;
+  border: none;
+  background-color: #00ff99;
+  color: black;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search-bar button:hover {
+  background-color: #00cc77;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.auth-buttons button {
+  background-color: #007bff;
+  color: white;
+  padding: .6rem 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.auth-buttons button:hover {
+  background-color: #0056b3;
+}
 .products-section {
   padding: 2rem;
   background-color: #111;
