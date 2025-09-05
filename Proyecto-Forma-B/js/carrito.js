@@ -1,0 +1,76 @@
+const productos = [
+  { id: "CO001", categoria: "Consolas", nombre: "PlayStation 5", precio: 549990 },
+  { id: "CO002", categoria: "Consolas", nombre: "Xbox Series X", precio: 499990 },
+
+  { id: "CG001", categoria: "Computadores Gamers", nombre: "PC Gamer ASUS ROG Strix", precio: 1299990 },
+  { id: "CG002", categoria: "Computadores Gamers", nombre: "PC Gamer AMD Ryzen", precio:  1100000 },
+  
+  { id: "JM001", categoria: "Juegos de Mesa", nombre: "Catan", precio: 29990 },
+  { id: "JM002", categoria: "Juegos de Mesa", nombre: "Carcassonne", precio: 24990 },
+  
+  { id: "AC001", categoria: "Accesorios", nombre: "Controlador Inalámbrico Xbox Series X", precio: 59990 },
+  { id: "AC002", categoria: "Accesorios", nombre: "Auriculares Gamer HyperX Cloud II", precio: 79990 },
+
+  { id: "OF001", categoria: "Ofertas", nombre: "Polera Gamer Personalizada", precio: 14990 },
+  { id: "OF002", categoria: "Ofertas", nombre: "Mousepad Razer Goliathus", precio: 29990 },
+];
+
+function agregarAlCarrito(id) {
+  const producto = productos.find(p => p.id === id);
+  if (!producto) return;
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  carrito.push(producto);
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+  alert(`${producto.nombre} agregado al carrito`);
+}
+
+function mostrarCarrito() {
+  const contenedor = document.getElementById("carrito-container");
+  if (!contenedor) return;
+  const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  contenedor.innerHTML = `
+    <div class="carrito-header">
+      <span class="col codigo">Código</span>
+      <span class="col categoria">Categoría</span>
+      <span class="col producto">Producto</span>
+      <span class="col precio">Precio</span>
+    </div>
+  `;
+  let total = 0;
+  carrito.forEach(item => {
+    total += item.precio;
+    const div = document.createElement("div");
+    div.classList.add("producto-carrito");
+    div.innerHTML = `
+      <span class="col codigo">${item.id}</span>
+      <span class="col categoria">${item.categoria}</span>
+      <span class="col producto">${item.nombre}</span>
+      <span class="col precio">$${item.precio.toLocaleString()}</span>
+    `;
+    contenedor.appendChild(div);
+  });
+  const totalDiv = document.getElementById("total-compra");
+  totalDiv.textContent = `Total: $${total.toLocaleString()} CLP`;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const botones = document.querySelectorAll(".add-to-cart");
+  botones.forEach(btn => {
+    btn.addEventListener("click", e => {
+      const id = e.target.dataset.id;
+      agregarAlCarrito(id);
+    });
+  });
+
+  mostrarCarrito();
+
+  window.addEventListener('storage', mostrarCarrito);
+
+  const vaciarBtn = document.getElementById("vaciar-carrito");
+  if (vaciarBtn) {
+    vaciarBtn.addEventListener("click", () => {
+      localStorage.removeItem("carrito");
+      mostrarCarrito();
+    });
+  }
+});
