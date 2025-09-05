@@ -30,12 +30,24 @@
 
       <div class="auth-buttons">
         <button id="login-btn">Login</button>
-        <a href="register.html" target="_blank">
-          <button id="signup-btn">Registro</button>
-        </a>
-        <button id="cart-btn">
+        <button id="signup-btn">Registro</button>
+        <a href="#" id="cart-btn-js">
           <img src="https://cdn-icons-png.flaticon.com/512/9341/9341730.png" alt="Carrito">
-        </button>
+        </a>
+
+        <script>
+          let carritoVentana;
+
+          document.getElementById('cart-btn-js').addEventListener('click', function(e){
+            e.preventDefault(); 
+            const url = 'carrito.html';
+            if (!carritoVentana || carritoVentana.closed) {
+              carritoVentana = window.open(url, 'carritoPestana');
+            } else {
+              carritoVentana.focus();
+            }
+          });
+        </script>
       </div>
     </nav>
   </header>
@@ -70,6 +82,6 @@
       <h3>Ofertas</h3>
     </a>
   </section>
-
+<script src="../js/carrito.js"></script>
 </body>
 </html>
