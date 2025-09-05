@@ -200,6 +200,8 @@ html, body {
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
   text-align: center;
+  text-decoration: none;
+  color: white;
 }
 
 .shortcut-card img {
@@ -222,10 +224,8 @@ html, body {
 
 .shortcut-card:hover {
   transform: translateY(-5px);
+  background-color: black;
   box-shadow: 0 6px 15px #00ff9980;
-}
-
-.shortcut-card h3 a:hover {
-  color: #FFFFFF;
-  text-shadow: 0 0 8px #39FF14;
+  color: white;
+  transition: 0.3s;
 }
