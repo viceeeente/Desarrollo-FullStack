@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+html, body {
+  height: 100%;
+  background-color: #111;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 2rem 4rem; 
+}
+
+h2 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 2rem;
+  color: #39FF14;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+#carrito-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; 
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto; 
+  background-color: #181818;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 255, 153, 0.1);
+}
+
+.carrito-header,
+.producto-carrito {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 1rem;
+  background-color: #222;
+  border-radius: 10px;
+}
+
+.carrito-header {
+  font-weight: bold;
+  color: #00ff99;
+  border-bottom: 1px solid #00ff9940;
+}
+
+.producto-carrito {
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-bottom: 1px solid #333;
+  margin-bottom: 0.3rem;
+}
+
+.producto-carrito:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px #00ff9980;
+}
+
+.col {
+  flex: 1;
+  padding: 0 0.5rem; 
+}
+
+.codigo { flex: 0.8; }
+.categoria { flex: 1.2; }
+.producto { flex: 2; }
+.precio { flex: 1; text-align: right; }
+
+#total-compra {
+  margin-top: 2rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #39FF14;
+  width: 100%;
+  max-width: 900px;
+  text-align: right;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#vaciar-carrito {
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.5rem;
+  background-color: #00ff99;
+  border: none;
+  border-radius: 8px;
+  color: #111;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  width: fit-content;
+  align-self: center;
+}
+
+#vaciar-carrito:hover {
+  background-color: #00cc77;
+}
