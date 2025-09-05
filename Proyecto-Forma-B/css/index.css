@@ -206,6 +206,12 @@ html, body {
   width: 60px;
   height: 60px;
   margin-bottom: 1rem;
+  filter: invert(0); 
+  transition: filter 0.3s ease; 
+}
+
+.shortcut-card:hover img {
+  filter: invert(1); 
 }
 
 .shortcut-card h3 a {
@@ -223,4 +229,3 @@ html, body {
   color: #FFFFFF;
   text-shadow: 0 0 8px #39FF14;
 }
-
