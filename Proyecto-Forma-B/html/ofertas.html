@@ -28,9 +28,23 @@
       <div class="auth-buttons">
         <button id="login-btn">Login</button>
         <button id="signup-btn">Registro</button>
-        <button id="cart-btn">
+        <a href="#" id="cart-btn-js">
           <img src="https://cdn-icons-png.flaticon.com/512/9341/9341730.png" alt="Carrito">
-        </button>
+        </a>
+
+        <script>
+          let carritoVentana;
+
+          document.getElementById('cart-btn-js').addEventListener('click', function(e){
+            e.preventDefault(); 
+            const url = 'carrito.html';
+            if (!carritoVentana || carritoVentana.closed) {
+              carritoVentana = window.open(url, 'carritoPestana');
+            } else {
+              carritoVentana.focus();
+            }
+          });
+        </script>
       </div>
     </nav>
   </header>
@@ -51,7 +65,7 @@
           <div class="card-back">
             <h3>Polera Gamer</h3>
             <p>Camiseta 100% algodón con estampado personalizado Level-Up Gamer. Cómoda y fresca para tus partidas.</p>
-            <button class="add-to-cart">Agregar al carrito 🛒</button>
+            <button class="add-to-cart" data-id="OF001">Agregar al carrito</button>
           </div>
         </div>
       </div>
@@ -68,7 +82,7 @@
           <div class="card-back">
             <h3>Mousepad Razer Goliathus</h3>
             <p>Superficie optimizada para precisión y velocidad, ideal para eSports. Base antideslizante y durabilidad garantizada.</p>
-            <button class="add-to-cart">Agregar al carrito 🛒</button>
+            <button class="add-to-cart" data-id="OF002">Agregar al carrito </button>
           </div>
         </div>
       </div>
@@ -76,8 +90,9 @@
     </div>
 
     <div class="back-button">
-      <a href="index.html">⬅ Volver al menú principal</a>
+      <a href="index.html"> Volver al menú principal</a>
     </div>
   </section>
+  <script src="../js/carrito.js"></script>
 </body>
 </html>

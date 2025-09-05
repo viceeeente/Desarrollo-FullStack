@@ -28,9 +28,24 @@
       <div class="auth-buttons">
         <button id="login-btn">Login</button>
         <button id="signup-btn">Registro</button>
-        <button id="cart-btn">
+        <a href="#" id="cart-btn-js">
           <img src="https://cdn-icons-png.flaticon.com/512/9341/9341730.png" alt="Carrito">
-        </button>
+        </a>
+
+        <script>
+          let carritoVentana;
+
+          document.getElementById('cart-btn-js').addEventListener('click', function(e){
+            e.preventDefault(); 
+            const url = 'carrito.html';
+            if (!carritoVentana || carritoVentana.closed) {
+              carritoVentana = window.open(url, 'carritoPestana');
+            } else {
+              carritoVentana.focus();
+            }
+          });
+        </script>
+
       </div>
     </nav>
   </header>
@@ -46,11 +61,12 @@
             <h3>PlayStation 5</h3>
             <p>$549.990 CLP</p>
           </div>
-          
           <div class="card-back">
             <h3>PlayStation 5</h3>
-            <p>Consola de última generación de Sony con gráficos 4K, SSD ultrarrápido y juegos exclusivos.</p>
-            <button class="add-to-cart">Agregar al carrito 🛒</button>
+            <p>La consola de última generación de Sony, que ofrece gráficos
+            impresionantes y tiempos de carga ultrarrápidos para una experiencia de juego inmersiva
+            </p>
+            <button class="add-to-cart" data-id="CO001">Agregar al carrito</button>
           </div>
         </div>
       </div>
@@ -62,11 +78,10 @@
             <h3>Xbox Series X</h3>
             <p>$499.990 CLP</p>
           </div>
-
           <div class="card-back">
             <h3>Xbox Series X</h3>
             <p>La consola más potente de Microsoft con soporte para 4K, Game Pass y cientos de títulos disponibles.</p>
-            <button class="add-to-cart">Agregar al carrito 🛒</button>
+            <button class="add-to-cart" data-id="CO002">Agregar al carrito</button>
           </div>
         </div>
       </div>
@@ -77,5 +92,7 @@
       <a href="index.html">Volver al menú principal</a>
     </div>
   </section>
+
+  <script src="../js/carrito.js"></script>
 </body>
 </html>

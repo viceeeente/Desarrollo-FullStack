@@ -28,9 +28,23 @@
       <div class="auth-buttons">
         <button id="login-btn">Login</button>
         <button id="signup-btn">Registro</button>
-        <button id="cart-btn">
+        <a href="#" id="cart-btn-js">
           <img src="https://cdn-icons-png.flaticon.com/512/9341/9341730.png" alt="Carrito">
-        </button>
+        </a>
+
+        <script>
+          let carritoVentana;
+
+          document.getElementById('cart-btn-js').addEventListener('click', function(e){
+            e.preventDefault(); 
+            const url = 'carrito.html';
+            if (!carritoVentana || carritoVentana.closed) {
+              carritoVentana = window.open(url, 'carritoPestana');
+            } else {
+              carritoVentana.focus();
+            }
+          });
+        </script>
       </div>
     </nav>
   </header>
@@ -50,8 +64,10 @@
           
           <div class="card-back">
             <h3>Catan</h3>
-            <p>Juego de mesa estratégico donde los jugadores compiten por colonizar una isla, comerciar recursos y expandir sus territorios.</p>
-            <button class="add-to-cart">Agregar al carrito 🛒</button>
+            <p>Un clásico juego de estrategia donde los jugadores compiten por colonizar y
+            expandirse en la isla de Catan. Ideal para 3-4 jugadores y perfecto para noches de juego en
+            familia o con amigos</p>
+            <button class="add-to-cart" data-id="JM001">Agregar al carrito</button>
           </div>
         </div>
       </div>
@@ -68,8 +84,11 @@
           
           <div class="card-back">
             <h3>Carcassonne</h3>
-            <p>Juego de colocación de losetas en el que construyes ciudades, caminos y campos medievales mientras compites con otros jugadores.</p>
-            <button class="add-to-cart">Agregar al carrito 🛒</button>
+            <p>Un juego de colocación de fichas donde los jugadores construyen el paisaje
+              alrededor de la fortaleza medieval de Carcassonne. Ideal para 2-5 jugadores y fácil de
+              aprender.
+              </p>
+            <button class="add-to-cart" data-id="JM002">Agregar al carrito</button>
           </div>
         </div>
       </div>
@@ -77,8 +96,9 @@
     </div>
 
     <div class="back-button">
-      <a href="index.html">⬅ Volver al menú principal</a>
+      <a href="index.html">Volver al menú principal</a>
     </div>
   </section>
+  <script src="../js/carrito.js"></script>
 </body>
 </html>
