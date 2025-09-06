@@ -43,7 +43,7 @@ password2.addEventListener('blur' ,function(e) {
 });
 
 form.addEventListener('submit', function (e){
-    errors.innerHTML = "";
+    error.innerHTML = "";
     document.querySelectorAll("input").forEach(element=> {
         if(element.classList.contains("error")){
             e.preventDefault();
