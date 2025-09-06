@@ -27,7 +27,7 @@ html, body {
 
 #body-form{
     display: flex;
-    background-color: #85fd85;
+    background-color: #00ff99;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -35,7 +35,11 @@ html, body {
 }
 
 #body-form h2{
+    margin-bottom: 1rem;
+    color: white;
+    background-color: #00ff99;
     padding: 1rem;
+    border-radius: 20px;
 }
 
 form{
@@ -43,25 +47,32 @@ form{
     display: flex;
     flex-direction: column;
     row-gap: .7rem;
-    background-color: #00ff99;
+    background-color: #333;
     border-radius: 20px;
 }
 
 label {
-    display: none;
+    color: white;
+    background-color: #111;
+    border-color: #111;
+    padding: 1rem;
+    border-radius: 20px;
+    margin-bottom: .5rem;
 }
 
 input {
     width: 100%;
     height: 2rem;
-    border: none;
     outline: none;
-    background-color: #E6F0F0;
+    background-color: #333;
     padding: 0px .5rem;
+    border-color: #111;
+    border-radius: 20px;
+    color: white;
 }
 
 input::placeholder {
-    color: #BBCBD2;
+    color: white;
     font-weight: 400;
 }
 
@@ -73,13 +84,14 @@ input::placeholder {
 }
 
 button {
-    background-color: #00ff99;
+    background-color: #111;
     color: #ffffff;
-    padding: 1rem;
+    padding: .8rem;
     width: 49%;
     border: none;
     outline: none;
     cursor: pointer;
+    border-radius: 20px;
 }
 
 button:hover{
