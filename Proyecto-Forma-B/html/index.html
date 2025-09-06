@@ -11,7 +11,7 @@
   <header>
     <nav id="main-menu">
       <img src="https://pittnews.com/wp-content/uploads/2023/02/D_LevelUp_File.png" alt="icon">
-
+      <div id="greeting"></div>
       <div class="dropdown">
         <button id="categories-btn">Categorías</button>
         <ul class="dropdown-menu">
@@ -85,5 +85,16 @@
     </a>
   </section>
 <script src="../js/carrito.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function (){
+    const greeting = document.getElementById("greeting");
+    const nameUser = localStorage.getItem("nameUser");
+
+    if(nameUser && greeting) {
+        greeting.textContent = `¡Bienvenido, ${nameUser}!`;
+        signupBtn.style.display = "none";
+    }
+});
+</script>
 </body>
 </html>
