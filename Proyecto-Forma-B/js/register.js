@@ -9,7 +9,7 @@ const error = document.getElementById("error");
 const set = new Set();
 
 names.addEventListener('blur' ,function(e) {
-    if(names.value.lenght == 0){
+    if(names.value.length === 0){
         names.classList.add("error");
         set.add("<p>Completa el campo Nombre</p>");
     }else{
@@ -17,7 +17,7 @@ names.addEventListener('blur' ,function(e) {
     }
 });
 user.addEventListener('blur' ,function(e) {
-    if(user.value.lenght == 0){
+    if(user.value.length === 0){
         user.classList.add("error");
         set.add("<p>Completa el campo User</p>");
     }else{
@@ -33,23 +33,41 @@ email.addEventListener('blur' ,function(e) {
     }
 });
 password2.addEventListener('blur' ,function(e) {
-    if(!password.value!=password2.value){
+    if(!password.value !== password2.value){
         email.classList.add("error");
         set.add("<p>Las contraseñas no coinciden</p>");
     }else{
         email.classList.remove("error");
-        set.add("<p>Las contraseñas coinciden")
     }
 });
 
 form.addEventListener('submit', function (e){
     error.innerHTML = "";
+    set.clear();
+    let thereErrors = false;
+
     document.querySelectorAll("input").forEach(element=> {
         if(element.classList.contains("error")){
-            e.preventDefault();
-            set.forEach(p=>{
-                errors.innerHTML +=p;
-            })
+            thereErrors = true;
         }
-    })
+        else{
+            localStorage.setItem("nameUser",names.value)
+            thereErrors = false;
+
+            window.location.href = "index.html";
+        }
+    });
+
+    if(thereErrors){
+        e.preventDefault();
+        set.forEach(p => {
+            error.innerHTML += p;
+        });
+    }else{
+        localStorage.setItem("nameUser",names.value)
+        thereErrors = false;
+
+        window.location.href = "index.html";
+    }
 })
+
