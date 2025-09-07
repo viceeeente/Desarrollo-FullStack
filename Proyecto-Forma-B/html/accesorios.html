@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ofertas - Level-UP GAMER</title>
+  <title>Accesorios - Level-UP GAMER</title>
   <link rel="stylesheet" href="../css/productos.css">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet">
 </head>
@@ -16,9 +16,11 @@
         <ul class="dropdown-menu">
           <li><a href="consolas.html">Consolas</a></li>
           <li><a href="juegos.html">Juegos</a></li>
-          <li><a href="accesorios.html">Accesorios</a></li>
           <li><a href="pc.html">PC Gamer</a></li>
-          <li><a href="ofertas.html">Ofertas</a></li>
+          <li><a href="mouse.html">Mouse</a></li>
+          <li><a href="mousepad.html">Mousepad</a></li>
+          <li><a href="silla-gamer.html">Sillas Gamers</a></li>
+          <li><a href="poleras-personalizadas.html">Poleras Personalizadas</a></li>
         </ul>
       </div>
       <div class="search-bar">
@@ -58,12 +60,12 @@
           
           <div class="card-front">
             <img src="https://goldengamers.cl/cdn/shop/products/1_91_1200x1200.png?v=1650388642" alt="Controlador Inalámbrico Xbox Series X">
-            <h3>Controlador Inalámbrico Xbox Series X</h3>
-            <p>$59.990</p>
+            <h3 id="nombre-front-AC001"></h3>
+            <p id="precio-AC001"></p>
           </div>
 
           <div class="card-back">
-            <h3>Controlador Inalámbrico Xbox Series X</h3>
+            <h3 id="nombre-back-AC001"></h3>
             <p>Ofrece una experiencia de juego cómoda con
             botones mapeables y una respuesta táctil mejorada. Compatible con consolas Xbox y PC.
             </p>
@@ -77,12 +79,12 @@
 
           <div class="card-front">
             <img src="https://media.spdigital.cl/thumbnails/products/4uskcpud_85117974_thumbnail_512.png" alt="Auriculares Gamer HyperX Cloud II">
-            <h3>Auriculares Gamer HyperX Cloud II</h3>
-            <p>$79.990</p>
+            <h3 id="nombre-front-AC002"></h3>
+            <p id="precio-AC002"></p>
           </div>
           
           <div class="card-back">
-            <h3>Auriculares Gamer HyperX Cloud II</h3>
+            <h3 id="nombre-back-AC002"></h3>
             <p>Proporcionan un sonido envolvente de calidad con un
               micrófono desmontable y almohadillas de espuma viscoelástica para mayor comodidad
               durante largas sesiones de juego.
@@ -100,6 +102,23 @@
   </section>
 
     <script src="../js/carrito.js"></script>
+  <script>
+    productos.forEach(producto => {
+      const precioElemento = document.getElementById(`precio-${producto.id}`);
+      const nombreFront = document.getElementById(`nombre-front-${producto.id}`);
+      const nombreBack = document.getElementById(`nombre-back-${producto.id}`);
+      
+      if (precioElemento) {
+        precioElemento.textContent = `$${producto.precio.toLocaleString("es-CL")} CLP`;
+      }
+      if (nombreFront) {
+        nombreFront.textContent = producto.nombre;
+      }
+      if (nombreBack) {
+        nombreBack.textContent = producto.nombre;
+      }
+    });
+  </script>
 
 </body>
 </html>

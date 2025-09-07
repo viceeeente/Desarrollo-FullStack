@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Juegos - Level-UP GAMER</title>
+  <title>Mousepad - Level-UP GAMER</title>
   <link rel="stylesheet" href="../css/productos.css">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet">
 </head>
@@ -15,11 +15,11 @@
         <button id="categories-btn">Categorías</button>
         <ul class="dropdown-menu">
           <li><a href="consolas.html">Consolas</a></li>
+          <li><a href="juegos.html">Juegos</a></li>
           <li><a href="accesorios.html">Accesorios</a></li>
           <li><a href="pc.html">PC Gamer</a></li>
           <li><a href="ofertas.html">Ofertas</a></li>
           <li><a href="mouse.html">Mouse</a></li>
-          <li><a href="mousepad.html">Mousepad</a></li>
           <li><a href="silla-gamer.html">Sillas Gamers</a></li>
           <li><a href="poleras-personalizadas.html">Poleras Personalizadas</a></li>
         </ul>
@@ -48,50 +48,26 @@
             }
           });
         </script>
+
       </div>
     </nav>
   </header>
 
   <section class="products-section">
-    <h2>Juegos</h2>
+    <h2>Mousepad</h2>
     <div class="products-container">
 
       <div class="product-card">
         <div class="card-inner">
-        
           <div class="card-front">
-            <img src="https://x.boardgamearena.net/data/gamemedia/catan/box/en_280.png?h=1751536970" alt="Catan">
-            <h3 id="nombre-front-JM001"></h3>
-            <p id="precio-JM001"></p>
+            <img src="https://dl.razerzone.com/src2/eeimages/1395/1395_goliathusextended.png">
+            <h3 id="nombre-front-MP001"></h3>
+            <p id="precio-MP001"></p>
           </div>
-          
           <div class="card-back">
-            <h3 id="nombre-back-JM001"></h3>
-            <p>Un clásico juego de estrategia donde los jugadores compiten por colonizar y
-            expandirse en la isla de Catan. Ideal para 3-4 jugadores y perfecto para noches de juego en
-            familia o con amigos</p>
-            <button class="add-to-cart" data-id="JM001">Agregar al carrito</button>
-          </div>
-        </div>
-      </div>
-
-      
-      <div class="product-card">
-        <div class="card-inner">
-          
-          <div class="card-front">
-            <img src="https://cdnx.jumpseller.com/juegos-gori/image/50813062/resize/1200/1200?1728589746" alt="Carcassonne">
-            <h3 id="nombre-front-JM002"></h3>
-            <p id="precio-JM002"></p>
-          </div>
-          
-          <div class="card-back">
-            <h3 id="nombre-back-JM002"></h3>
-            <p>Un juego de colocación de fichas donde los jugadores construyen el paisaje
-              alrededor de la fortaleza medieval de Carcassonne. Ideal para 2-5 jugadores y fácil de
-              aprender.
-              </p>
-            <button class="add-to-cart" data-id="JM002">Agregar al carrito</button>
+            <h3 id="nombre-back-MP001"></h3>
+            <p>Mousepad Razer Goliathus Extended Chroma con iluminación RGB y superficie optimizada para precisión y velocidad</p>
+            <button class="add-to-cart" data-id="MP001">Agregar al carrito</button>
           </div>
         </div>
       </div>
@@ -104,7 +80,6 @@
   </section>
 
   <script src="../js/carrito.js"></script>
-  
   <script>
     productos.forEach(producto => {
       const precioElemento = document.getElementById(`precio-${producto.id}`);
@@ -122,6 +97,5 @@
       }
     });
   </script>
-
 </body>
 </html>
