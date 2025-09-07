@@ -24,6 +24,11 @@ html, body {
   height: 60px;
   width: auto;
 }
+#main-menu .info p {
+  font-size: 0.9rem;
+  color: #ccc;
+  text-align: right;
+}
 
 #body-form {
   display: flex;
