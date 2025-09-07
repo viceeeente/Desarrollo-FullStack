@@ -33,8 +33,8 @@
       </div>
 
       <div class="auth-buttons">
-        <a href="login.html">
-          <button id="login-btn">Iniciar Sesión</button>
+        <a href="login.html" id="auth-link">
+          <button id="auth-btn">Iniciar Sesión</button>
         </a>
         <a href="#" id="cart-btn-js">
           <img src="https://cdn-icons-png.flaticon.com/512/9341/9341730.png" alt="Carrito">
@@ -111,22 +111,19 @@ document.addEventListener('DOMContentLoaded', function () {
   const authLink = document.getElementById("auth-link");
 
   if (isLoggedIn === "true" && nameUser) {
-    // Mostrar mensaje de bienvenida
+    
     greeting.textContent = `¡Bienvenido, ${nameUser}!`;
-
-    // Cambiar botón a "Cerrar Sesión"
+    
     authBtn.textContent = "Cerrar Sesión";
-    authLink.href = "#"; // Evita que redirija a login
+    authLink.href = "#"; 
 
-    // Agregar funcionalidad de logout
     authBtn.addEventListener("click", function (e) {
       e.preventDefault();
       localStorage.removeItem("isLoggedIn");
       localStorage.removeItem("nameUser");
-      location.reload(); // Recargar la página
+      location.reload();
     });
   } else {
-    // Asegurar que sea botón de login
     authBtn.textContent = "Iniciar Sesión";
     authLink.href = "login.html";
   }
