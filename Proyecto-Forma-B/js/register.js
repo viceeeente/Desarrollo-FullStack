@@ -42,7 +42,7 @@ password2.addEventListener('blur' ,function(e) {
 });
 
 form.addEventListener('submit', function (e) {
-    e.preventDefault(); // Prevenir envío por defecto
+    e.preventDefault(); 
     error.innerHTML = "";
 
     const errores = [];
@@ -58,7 +58,6 @@ form.addEventListener('submit', function (e) {
         return;
     }
 
-    // Crear objeto de usuario y guardar en localStorage
     const userData = {
         name: names.value,
         username: user.value,
@@ -68,9 +67,8 @@ form.addEventListener('submit', function (e) {
 
     localStorage.setItem("userData", JSON.stringify(userData));
     localStorage.setItem("isLoggedIn", "true");
-    localStorage.setItem("nameUser", names.value);
+    localStorage.setItem("nameUser", user.value);
 
-    // Redirigir al index
     window.location.href = "index.html";
 });
 
