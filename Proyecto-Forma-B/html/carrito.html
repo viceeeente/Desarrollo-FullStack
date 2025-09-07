@@ -17,7 +17,22 @@
     </div>
   </div>
   <div id="total-compra">Total: $0 CLP</div>
-  <button id="vaciar-carrito">Vaciar carrito</button>
+
+  <div class="carrito-botones">
+    <button id="vaciar-carrito">Vaciar carrito</button>
+    <button id="volver-btn">Volver</button>
+  </div>
+
   <script src="../js/carrito.js"></script>
+  <script>
+    document.getElementById("volver-btn").addEventListener("click", () => {
+      const paginaAnterior = localStorage.getItem("paginaAnterior");
+      if (paginaAnterior) {
+        window.open(paginaAnterior, "_self"); 
+      } else {
+        window.close(); 
+      }
+    });
+  </script>
 </body>
 </html>
