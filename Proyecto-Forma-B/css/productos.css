@@ -7,7 +7,8 @@
 
 html, body {
   height: 100%;
-  background-color: #111;
+  background-color: #000;
+  color: #fff;
 }
 
 #main-menu {
@@ -16,9 +17,8 @@ html, body {
   justify-content: space-between;
   height: 70px;
   width: 100%;
-  background-color: #111; 
+  background-color: #000; 
   padding: 0 2rem;
-  color: white;
 }
 
 #main-menu img {
@@ -28,16 +28,17 @@ html, body {
 
 #categories-btn {
   border: none;
-  background-color: #1e1e1e;
+  background-color: #111;
   color: white;
   padding: .6rem 1rem;
   border-radius: 8px;
   cursor: pointer;
   transition: 0.3s;
+  font-weight: bold;
 }
 
 #categories-btn:hover {
-  background-color: #00ff99; 
+  background-color: #39FF14; 
   color: black;
 }
 
@@ -51,10 +52,10 @@ html, body {
   position: absolute;
   top: 110%;
   left: 0;
-  background-color: #222;
+  background-color: #111;
   min-width: 180px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.7);
   list-style: none;
   padding: .5rem 0;
   z-index: 10;
@@ -69,7 +70,7 @@ html, body {
 }
 
 .dropdown-menu li:hover {
-  background-color: #00ff99;
+  background-color: #1E90FF;
 }
 
 .dropdown-menu a {
@@ -81,6 +82,7 @@ html, body {
 
 .dropdown-menu li:hover a {
   color: #000;
+  font-weight: bold;
 }
 
 .search-bar {
@@ -97,20 +99,24 @@ html, body {
   border-radius: 8px 0 0 8px;
   border: none;
   outline: none;
+  background-color: #111;
+  color: white;
 }
 
 .search-bar button {
   padding: 0.6rem 1rem;
   border: none;
-  background-color: #00ff99;
+  background-color: #39FF14;
   color: black;
   border-radius: 0 8px 8px 0;
   cursor: pointer;
   transition: 0.3s;
+  font-weight: bold;
 }
 
 .search-bar button:hover {
-  background-color: #00cc77;
+  background-color: #1E90FF;
+  color: white;
 }
 
 .auth-buttons {
@@ -120,17 +126,19 @@ html, body {
 }
 
 .auth-buttons button {
-  background-color: #007bff;
+  background-color: #1E90FF;
   color: white;
   padding: .6rem 1rem;
   border-radius: 8px;
   border: none;
   cursor: pointer;
   transition: 0.3s;
+  font-weight: bold;
 }
 
 .auth-buttons button:hover {
-  background-color: #0056b3;
+  background-color: #39FF14;
+  color: black;
 }
 
 #cart-btn-js {
@@ -146,7 +154,7 @@ html, body {
 }
 
 #cart-btn-js:hover {
-  background-color: #333;
+  background-color: #1E90FF;
 }
 
 #cart-btn-js img {
@@ -156,14 +164,15 @@ html, body {
 
 .products-section {
   padding: 2rem;
-  background-color: #111;
+  background-color: #000;
 }
 
 .products-section h2 {
   font-family: "Orbitron", sans-serif;
-  color: #00ff99;
+  color: #39FF14;
   margin-bottom: 1.5rem;
   text-align: center;
+  text-shadow: 0 0 8px #39FF14;
 }
 
 .products-container {
@@ -199,14 +208,14 @@ html, body {
   height: 100%;
   border-radius: 12px;
   backface-visibility: hidden;
-  background-color: #222;
+  background-color: #111;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 1rem;
   text-align: center;
-  box-shadow: 0 6px 15px rgba(0, 255, 153, 0.3);
+  box-shadow: 0 6px 15px rgba(57, 255, 20, 0.4);
 }
 
 .card-front img {
@@ -226,11 +235,11 @@ html, body {
 
 .card-back {
   transform: rotateY(180deg);
-  background-color: #111;
+  background-color: #000;
 }
 
 .card-back h3 {
-  color: #00ff99;
+  color: #39FF14;
   margin-bottom: 0.5rem;
 }
 
@@ -241,8 +250,8 @@ html, body {
 }
 
 .card-back .add-to-cart {
-  background-color: #00ff99;
-  color: #111;
+  background-color: #1E90FF;
+  color: #fff;
   padding: 0.6rem 1rem;
   border: none;
   border-radius: 8px;
@@ -252,7 +261,8 @@ html, body {
 }
 
 .card-back .add-to-cart:hover {
-  background-color: #00cc77;
+  background-color: #39FF14;
+  color: #000;
 }
 
 .back-button {
@@ -262,17 +272,18 @@ html, body {
 
 .back-button a {
   text-decoration: none;
-  color: #39FF14;
+  color: #1E90FF;
   font-weight: bold;
   padding: .5rem 1rem;
-  border: 2px solid #39FF14;
+  border: 2px solid #1E90FF;
   border-radius: 8px;
   transition: 0.3s;
 }
 
 .back-button a:hover {
   background-color: #39FF14;
-  color: #111;
+  border-color: #39FF14;
+  color: #000;
 }
 
 .old-price {
