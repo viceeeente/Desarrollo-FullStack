@@ -29,11 +29,8 @@
       </div>
 
       <div class="auth-buttons">
-        <a href="register.html" target="_blank">
-          <button id="signup-btn">Registro</button>
-        </a>
-        <a href="login.html" target="_blank">
-          <button id="login-btn">Iniciar Sesión</button>
+        <a href="login.html" target="_blank" id="auth-link">
+          <button id="auth-btn">Iniciar Sesión</button>
         </a>
         <a href="#" id="cart-btn-js">
           <img src="https://cdn-icons-png.flaticon.com/512/9341/9341730.png" alt="Carrito">
@@ -88,15 +85,36 @@
   </section>
 <script src="../js/carrito.js"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function (){
-    const greeting = document.getElementById("greeting");
-    const nameUser = localStorage.getItem("nameUser");
+document.addEventListener('DOMContentLoaded', function () {
+  const greeting = document.getElementById("greeting");
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+  const nameUser = localStorage.getItem("nameUser");
 
-    if(nameUser && greeting) {
-        greeting.textContent = `¡Bienvenido, ${nameUser}!`;
-        signupBtn.style.display = "none";
-    }
+  const authBtn = document.getElementById("auth-btn");
+  const authLink = document.getElementById("auth-link");
+
+  if (isLoggedIn === "true" && nameUser) {
+    // Mostrar mensaje de bienvenida
+    greeting.textContent = `¡Bienvenido, ${nameUser}!`;
+
+    // Cambiar botón a "Cerrar Sesión"
+    authBtn.textContent = "Cerrar Sesión";
+    authLink.href = "#"; // Evita que redirija a login
+
+    // Agregar funcionalidad de logout
+    authBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      localStorage.removeItem("isLoggedIn");
+      localStorage.removeItem("nameUser");
+      location.reload(); // Recargar la página
+    });
+  } else {
+    // Asegurar que sea botón de login
+    authBtn.textContent = "Iniciar Sesión";
+    authLink.href = "login.html";
+  }
 });
 </script>
+
 </body>
 </html>
