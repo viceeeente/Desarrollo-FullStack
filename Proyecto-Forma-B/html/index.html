@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Level-UP GAMER</title>
-  <link rel="stylesheet" href="../css/index.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/index.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
   <header>
     <nav id="main-menu">
-      <img src="../logo/logo.png" alt="icon">
+      <img src="../logo/logo.png" alt="icon"/>
       <div id="greeting"></div>
       <div class="dropdown">
         <button id="categories-btn">Categorías</button>
@@ -27,7 +28,7 @@
       </div>
 
       <div class="search-bar">
-        <input type="text" placeholder="Buscar productos...">
+        <input type="text" placeholder="Buscar productos..." />
         <button>🔍</button>
       </div>
 
@@ -36,14 +37,14 @@
           <button id="auth-btn">Iniciar Sesión</button>
         </a>
         <a href="#" id="cart-btn-js">
-          <img src="https://cdn-icons-png.flaticon.com/512/9341/9341730.png" alt="Carrito">
+          <img src="https://cdn-icons-png.flaticon.com/512/9341/9341730.png" alt="Carrito" />
         </a>
 
         <script>
           let carritoVentana;
 
-          document.getElementById('cart-btn-js').addEventListener('click', function(e){
-            e.preventDefault(); 
+          document.getElementById('cart-btn-js').addEventListener('click', function (e) {
+            e.preventDefault();
             const url = 'carrito.html';
             if (!carritoVentana || carritoVentana.closed) {
               carritoVentana = window.open(url, 'carritoPestana');
@@ -56,80 +57,148 @@
     </nav>
   </header>
 
-  <section class="welcome">
-    <div class="welcome-text">
-      <h2>¡Bienvenido a Level-UP GAMER!</h2>
-      <p>Misión: Proporcionar productos de alta calidad para gamers en todo Chile.</p>
-      <p>Visión: Ser la tienda online líder en productos para gamers, ofreciendo una experiencia única.</p>
-    </div>
-  </section>
+  <div class="main-container">
+    <section class="content-left">
+      <section class="welcome">
+        <div class="welcome-text">
+          <h2>¡Bienvenido a Level-UP GAMER!</h2>
+          <p>Misión: Proporcionar productos de alta calidad para gamers en todo Chile.</p>
+          <p>Visión: Ser la tienda online líder en productos para gamers, ofreciendo una experiencia única.</p>
+        </div>
+      </section>
 
-  <section class="shortcuts">
-    <a href="consolas.html" class="shortcut-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/141/141309.png" alt="Consolas">
-      <h3>Consolas</h3>
-    </a>
-    <a href="pc.html" class="shortcut-card">
-      <img src="https://cdn-icons-png.freepik.com/512/8674/8674466.png" alt="PC Gamer">
-      <h3>PC Gamer</h3>
-    </a>
-    <a href="juegos.html" class="shortcut-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/686/686589.png" alt="Juegos">
-      <h3>Juegos</h3>
-    </a>
-    <a href="accesorios.html" class="shortcut-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/38/38708.png" alt="Accesorios">
-      <h3>Accesorios</h3>
-    </a>
-    <a href="mouse.html" class="shortcut-card">
-      <img src="https://static.thenounproject.com/png/1080127-200.png" alt="Ofertas">
-      <h3>Mouse</h3>
-    </a>
-    <a href="mousepad.html" class="shortcut-card">
-      <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/mouse-pad-6875490-5640481.png" alt="Ofertas">
-      <h3>Mousepad</h3>
-    </a>
-    <a href="silla-gamer.html" class="shortcut-card">
-      <img src="https://cdn-icons-png.flaticon.com/256/1698/1698641.png" alt="Ofertas">
-      <h3>Sillas Gamers</h3>
-    </a>
-    <a href="poleras-personalizadas.html" class="shortcut-card">
-      <img src="https://images.vexels.com/media/users/3/142647/isolated/lists/7975c8713e6cd70ff26097efbbebdbd1-ropa-de-camiseta.png" alt="Ofertas">
-      <h3>Poleras Personalizadas</h3>
-    </a>
-    </a>
-  </section>
-<script src="../js/carrito.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const greeting = document.getElementById("greeting");
-  const isLoggedIn = localStorage.getItem("isLoggedIn");
-  const nameUser = localStorage.getItem("userName");
+      <section class="shortcuts">
+        <a href="consolas.html" class="shortcut-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/141/141309.png" alt="Consolas" />
+          <h3>Consolas</h3>
+        </a>
+        <a href="pc.html" class="shortcut-card">
+          <img src="https://cdn-icons-png.freepik.com/512/8674/8674466.png" alt="PC Gamer" />
+          <h3>PC Gamer</h3>
+        </a>
+        <a href="juegos.html" class="shortcut-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/686/686589.png" alt="Juegos" />
+          <h3>Juegos</h3>
+        </a>
+        <a href="accesorios.html" class="shortcut-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/38/38708.png" alt="Accesorios" />
+          <h3>Accesorios</h3>
+        </a>
+        <a href="mouse.html" class="shortcut-card">
+          <img src="https://static.thenounproject.com/png/1080127-200.png" alt="Ofertas" />
+          <h3>Mouse</h3>
+        </a>
+        <a href="mousepad.html" class="shortcut-card">
+          <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/mouse-pad-6875490-5640481.png" alt="Ofertas" />
+          <h3>Mousepad</h3>
+        </a>
+        <a href="silla-gamer.html" class="shortcut-card">
+          <img src="https://cdn-icons-png.flaticon.com/256/1698/1698641.png" alt="Ofertas" />
+          <h3>Sillas Gamers</h3>
+        </a>
+        <a href="poleras-personalizadas.html" class="shortcut-card">
+          <img src="https://images.vexels.com/media/users/3/142647/isolated/lists/7975c8713e6cd70ff26097efbbebdbd1-ropa-de-camiseta.png" alt="Ofertas" />
+          <h3>Poleras Personalizadas</h3>
+        </a>
+      </section>
+    </section>
+</div>
 
-  const authBtn = document.getElementById("auth-btn");
-  const authLink = document.getElementById("auth-link");
+<section class="map-section">
+  <div class="map-container">
+    <p>Ubicación de nuestras sucursales:</p>
+    <div id="map"></div>
+  </div>
+</section>
 
-  if (isLoggedIn === "true" && nameUser) {
-    
-    greeting.textContent = `¡Bienvenido, ${nameUser}!`;
-    
-    authBtn.textContent = "Cerrar Sesión";
-    authBtn.classList.add("logout-btn");
-    authLink.href = "#"; 
+  <script src="../js/carrito.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const greeting = document.getElementById('greeting');
+      const isLoggedIn = localStorage.getItem('isLoggedIn');
+      const nameUser = localStorage.getItem('userName');
 
-    authBtn.addEventListener("click", function (e) {
-      e.preventDefault();
-      localStorage.removeItem("isLoggedIn");
-      localStorage.removeItem("nameUser");
-      location.reload();
+      const authBtn = document.getElementById('auth-btn');
+      const authLink = document.getElementById('auth-link');
+
+      if (isLoggedIn === 'true' && nameUser) {
+        greeting.textContent = `¡Bienvenido, ${nameUser}!`;
+
+        authBtn.textContent = 'Cerrar Sesión';
+        authBtn.classList.add('logout-btn');
+        authLink.href = '#';
+
+        authBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          localStorage.removeItem('isLoggedIn');
+          localStorage.removeItem('nameUser');
+          location.reload();
+        });
+      } else {
+        authBtn.textContent = 'Iniciar Sesión';
+        authBtn.classList.remove('logout-btn');
+        authLink.href = 'login.html';
+      }
     });
-  } else {
-    authBtn.textContent = "Iniciar Sesión";
-    authBtn.classList.remove("logout-btn");
-    authLink.href = "login.html";
-  }
-});
+  </script>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Crear el mapa (sin centrar ni hacer zoom inicialmente)
+    const map = L.map('map');
+
+    // Agregar el mapa base (OpenStreetMap)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Lista de ubicaciones
+    const ubicaciones = [
+      { nombre: 'Sucursal Santiago Centro', coords: [-33.4489, -70.6693] },
+      { nombre: 'Sucursal Maipú', coords: [-33.5167, -70.7617] },
+      { nombre: 'Sucursal Las Condes', coords: [-33.4089, -70.5671] },
+      { nombre: 'Sucursal Viña del Mar', coords: [-33.0245, -71.5518] },
+      { nombre: 'Sucursal Temuco', coords: [-38.7359, -72.5904] }
+    ];
+
+    // Crear un array de coordenadas para calcular los límites
+    const bounds = [];
+
+    // Agregar marcadores y guardar coordenadas
+    ubicaciones.forEach(ubicacion => {
+      const marker = L.marker(ubicacion.coords)
+        .addTo(map)
+        .bindPopup(ubicacion.nombre);
+      bounds.push(ubicacion.coords);
+    });
+
+    // Ajustar vista para que todas las ubicaciones entren en el mapa
+    map.fitBounds(bounds, { padding: [50, 50] }); // padding opcional para dejar márgenes
+  });
 </script>
+<footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2025 Level-UP GAMER. Todos los derechos reservados.</p>
+    <div class="social-links">
+      <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
+        <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="Facebook">
+      </a>
+      <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+      </a>
+      <a href="https://twitter.com/" target="_blank" aria-label="X (Twitter)">
+        <img src="https://cdn-icons-png.flaticon.com/512/145/145812.png" alt="X">
+      </a>
+      <a href="https://wa.me/56912345678" target="_blank" class="whatsapp-link" aria-label="WhatsApp">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+      </a>
+    </div>
+  </div>
+</footer>
+
 
 </body>
 </html>
