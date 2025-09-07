@@ -10,9 +10,16 @@ const productos = [
   
   { id: "AC001", categoria: "Accesorios", nombre: "Controlador Inalámbrico Xbox Series X", precio: 59990 },
   { id: "AC002", categoria: "Accesorios", nombre: "Auriculares Gamer HyperX Cloud II", precio: 79990 },
+  
+  { id: "SG001", categoria: "Sillas Gamers", nombre: "Silla Gamer SecretLab Titan", precio: 349990 },
+  
+  { id: "MS001", categoria: "Mouse", nombre: "Mouse Gamer Logitech G502 HERO", precio: 49990 },
 
-  { id: "OF001", categoria: "Ofertas", nombre: "Polera Gamer Personalizada", precio: 14990 },
-  { id: "OF002", categoria: "Ofertas", nombre: "Mousepad Razer Goliathus", precio: 29990 },
+  { id: "MP001", categoria: "Mousepad", nombre: "Mousepad Razer Goliathus Extended Chroma", precio: 29990 },
+  
+  { id: "PP001", categoria: "Poleras Personalizadas", nombre: "Polera Gamer Personalizada 'Level-UP'", precio: 14990 },
+
+
 ];
 
 function agregarAlCarrito(id) {
