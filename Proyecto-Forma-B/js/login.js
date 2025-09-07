@@ -17,7 +17,7 @@ document.getElementById("form").addEventListener("submit", function (e){
         inputPassword === storedUserData.password
     ){
         localStorage.setItem("isLoggedIn","true");
-        localStorage.setItem("nameUser", storedUserData.username);
+        localStorage.setItem("userName", storedUserData.username);
         window.location.href = "index.html";
     } else{
         errorLogin.textContent = "Usuario o contraseña incorrectos";
