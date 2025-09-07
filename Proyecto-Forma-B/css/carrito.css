@@ -83,8 +83,14 @@ h2 {
   margin-right: auto;
 }
 
+.carrito-botones {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
 #vaciar-carrito {
-  margin-top: 1.5rem;
   padding: 0.8rem 1.5rem;
   background-color: #00ff99;
   border: none;
@@ -94,9 +100,24 @@ h2 {
   cursor: pointer;
   transition: 0.3s;
   width: fit-content;
-  align-self: center;
 }
 
 #vaciar-carrito:hover {
   background-color: #00cc77;
+}
+
+#volver-btn {
+  padding: 0.8rem 1.5rem;
+  background-color: #39FF14;
+  border: none;
+  border-radius: 8px;
+  color: #111;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  width: fit-content;
+}
+
+#volver-btn:hover {
+  background-color: #2ecc71;
 }
