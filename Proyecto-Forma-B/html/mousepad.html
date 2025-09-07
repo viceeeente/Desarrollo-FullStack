@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mousepad - Level-UP GAMER</title>
+  <link rel="stylesheet" href="../css/productos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav id="main-menu">
+      <img src="../logo/logo.png" alt="icon">
+      <div class="dropdown">
+        <button id="categories-btn">Categorías</button>
+        <ul class="dropdown-menu">
+          <li><a href="consolas.html">Consolas</a></li>
+          <li><a href="juegos.html">Juegos</a></li>
+          <li><a href="accesorios.html">Accesorios</a></li>
+          <li><a href="pc.html">PC Gamer</a></li>
+          <li><a href="ofertas.html">Ofertas</a></li>
+          <li><a href="mouse.html">Mouse</a></li>
+          <li><a href="silla-gamer.html">Sillas Gamers</a></li>
+          <li><a href="poleras-personalizadas.html">Poleras Personalizadas</a></li>
+        </ul>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar productos...">
+        <button>🔍</button>
+      </div>
+      <div class="auth-buttons">
+        <button id="login-btn">Login</button>
+        <button id="signup-btn">Registro</button>
+        <a href="#" id="cart-btn-js">
+          <img src="https://cdn-icons-png.flaticon.com/512/9341/9341730.png" alt="Carrito">
+        </a>
+
+        <script>
+          let carritoVentana;
+
+          document.getElementById('cart-btn-js').addEventListener('click', function(e){
+            e.preventDefault(); 
+            const url = 'carrito.html';
+            if (!carritoVentana || carritoVentana.closed) {
+              carritoVentana = window.open(url, 'carritoPestana');
+            } else {
+              carritoVentana.focus();
+            }
+          });
+        </script>
+
+      </div>
+    </nav>
+  </header>
+
+  <section class="products-section">
+    <h2>Mousepad</h2>
+    <div class="products-container">
+
+      <div class="product-card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://dl.razerzone.com/src2/eeimages/1395/1395_goliathusextended.png">
+            <h3 id="nombre-front-MP001"></h3>
+            <p id="precio-MP001"></p>
+          </div>
+          <div class="card-back">
+            <h3 id="nombre-back-MP001"></h3>
+            <p>Mousepad Razer Goliathus Extended Chroma con iluminación RGB y superficie optimizada para precisión y velocidad</p>
+            <button class="add-to-cart" data-id="MP001">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="back-button">
+      <a href="index.html">Volver al menú principal</a>
+    </div>
+  </section>
+
+  <script src="../js/carrito.js"></script>
+  <script>
+    productos.forEach(producto => {
+      const precioElemento = document.getElementById(`precio-${producto.id}`);
+      const nombreFront = document.getElementById(`nombre-front-${producto.id}`);
+      const nombreBack = document.getElementById(`nombre-back-${producto.id}`);
+      
+      if (precioElemento) {
+        precioElemento.textContent = `$${producto.precio.toLocaleString("es-CL")} CLP`;
+      }
+      if (nombreFront) {
+        nombreFront.textContent = producto.nombre;
+      }
+      if (nombreBack) {
+        nombreBack.textContent = producto.nombre;
+      }
+    });
+  </script>
+</body>
+</html>

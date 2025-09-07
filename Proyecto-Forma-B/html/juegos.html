@@ -15,10 +15,13 @@
         <button id="categories-btn">Categorías</button>
         <ul class="dropdown-menu">
           <li><a href="consolas.html">Consolas</a></li>
-          <li><a href="juegos.html">Juegos</a></li>
           <li><a href="accesorios.html">Accesorios</a></li>
           <li><a href="pc.html">PC Gamer</a></li>
           <li><a href="ofertas.html">Ofertas</a></li>
+          <li><a href="mouse.html">Mouse</a></li>
+          <li><a href="mousepad.html">Mousepad</a></li>
+          <li><a href="silla-gamer.html">Sillas Gamers</a></li>
+          <li><a href="poleras-personalizadas.html">Poleras Personalizadas</a></li>
         </ul>
       </div>
       <div class="search-bar">
@@ -58,12 +61,12 @@
         
           <div class="card-front">
             <img src="https://x.boardgamearena.net/data/gamemedia/catan/box/en_280.png?h=1751536970" alt="Catan">
-            <h3>Catan</h3>
-            <p>$29.990 CLP</p>
+            <h3 id="nombre-front-JM001"></h3>
+            <p id="precio-JM001"></p>
           </div>
           
           <div class="card-back">
-            <h3>Catan</h3>
+            <h3 id="nombre-back-JM001"></h3>
             <p>Un clásico juego de estrategia donde los jugadores compiten por colonizar y
             expandirse en la isla de Catan. Ideal para 3-4 jugadores y perfecto para noches de juego en
             familia o con amigos</p>
@@ -78,12 +81,12 @@
           
           <div class="card-front">
             <img src="https://cdnx.jumpseller.com/juegos-gori/image/50813062/resize/1200/1200?1728589746" alt="Carcassonne">
-            <h3>Carcassonne</h3>
-            <p>$24.990 CLP</p>
+            <h3 id="nombre-front-JM002"></h3>
+            <p id="precio-JM002"></p>
           </div>
           
           <div class="card-back">
-            <h3>Carcassonne</h3>
+            <h3 id="nombre-back-JM002"></h3>
             <p>Un juego de colocación de fichas donde los jugadores construyen el paisaje
               alrededor de la fortaleza medieval de Carcassonne. Ideal para 2-5 jugadores y fácil de
               aprender.
@@ -99,6 +102,26 @@
       <a href="index.html">Volver al menú principal</a>
     </div>
   </section>
+
   <script src="../js/carrito.js"></script>
+  
+  <script>
+    productos.forEach(producto => {
+      const precioElemento = document.getElementById(`precio-${producto.id}`);
+      const nombreFront = document.getElementById(`nombre-front-${producto.id}`);
+      const nombreBack = document.getElementById(`nombre-back-${producto.id}`);
+      
+      if (precioElemento) {
+        precioElemento.textContent = `$${producto.precio.toLocaleString("es-CL")} CLP`;
+      }
+      if (nombreFront) {
+        nombreFront.textContent = producto.nombre;
+      }
+      if (nombreBack) {
+        nombreBack.textContent = producto.nombre;
+      }
+    });
+  </script>
+
 </body>
 </html>
