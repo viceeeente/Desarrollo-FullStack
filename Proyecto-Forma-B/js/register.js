@@ -33,7 +33,7 @@ email.addEventListener('blur' ,function(e) {
     }
 });
 password2.addEventListener('blur' ,function(e) {
-    if(!password.value !== password2.value){
+    if(password.value !== password2.value){
         email.classList.add("error");
         set.add("<p>Las contraseñas no coinciden</p>");
     }else{
@@ -41,33 +41,36 @@ password2.addEventListener('blur' ,function(e) {
     }
 });
 
-form.addEventListener('submit', function (e){
+form.addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevenir envío por defecto
     error.innerHTML = "";
-    set.clear();
-    let thereErrors = false;
 
-    document.querySelectorAll("input").forEach(element=> {
-        if(element.classList.contains("error")){
-            thereErrors = true;
-        }
-        else{
-            localStorage.setItem("nameUser",names.value)
-            thereErrors = false;
+    const errores = [];
 
-            window.location.href = "index.html";
-        }
-    });
+    if (names.value.trim() === "") errores.push("Completa el campo Nombre.");
+    if (user.value.trim() === "") errores.push("Completa el campo Usuario.");
+    if (!email.value.includes("@")) errores.push("Correo inválido.");
+    if (password.value.length < 4) errores.push("La contraseña debe tener al menos 4 caracteres.");
+    if (password.value !== password2.value) errores.push("Las contraseñas no coinciden.");
 
-    if(thereErrors){
-        e.preventDefault();
-        set.forEach(p => {
-            error.innerHTML += p;
-        });
-    }else{
-        localStorage.setItem("nameUser",names.value)
-        thereErrors = false;
-
-        window.location.href = "index.html";
+    if (errores.length > 0) {
+        error.innerHTML = errores.map(e => `<p>${e}</p>`).join("");
+        return;
     }
-})
+
+    // Crear objeto de usuario y guardar en localStorage
+    const userData = {
+        name: names.value,
+        username: user.value,
+        email: email.value,
+        password: password.value
+    };
+
+    localStorage.setItem("userData", JSON.stringify(userData));
+    localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("nameUser", names.value);
+
+    // Redirigir al index
+    window.location.href = "index.html";
+});
 
