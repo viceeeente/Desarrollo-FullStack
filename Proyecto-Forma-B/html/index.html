@@ -115,6 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
     greeting.textContent = `¡Bienvenido, ${nameUser}!`;
     
     authBtn.textContent = "Cerrar Sesión";
+    authBtn.classList.add("logout-btn");
     authLink.href = "#"; 
 
     authBtn.addEventListener("click", function (e) {
@@ -125,6 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   } else {
     authBtn.textContent = "Iniciar Sesión";
+    authBtn.classList.remove("logout-btn");
     authLink.href = "login.html";
   }
 });
