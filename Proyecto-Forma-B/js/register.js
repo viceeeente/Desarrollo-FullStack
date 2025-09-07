@@ -67,7 +67,7 @@ form.addEventListener('submit', function (e) {
 
     localStorage.setItem("userData", JSON.stringify(userData));
     localStorage.setItem("isLoggedIn", "true");
-    localStorage.setItem("nameUser", user.value);
+    localStorage.setItem("userName", user.value);
 
     window.location.href = "index.html";
 });
