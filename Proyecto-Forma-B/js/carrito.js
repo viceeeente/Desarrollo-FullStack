@@ -35,6 +35,10 @@ function mostrarCarrito() {
   const contenedor = document.getElementById("carrito-container");
   if (!contenedor) return;
   const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  const esDuoc = userData && userData.email.toLowerCase().endsWith("@duocuc.cl");
+
   contenedor.innerHTML = `
     <div class="carrito-header">
       <span class="col codigo">Código</span>
@@ -45,19 +49,31 @@ function mostrarCarrito() {
   `;
   let total = 0;
   carrito.forEach(item => {
+    let finalPrice = item.precio;
+
+    if(esDuoc) {
+      finalPrice = Math.round(item.precio * 0.8);
+    }
     total += item.precio;
     const div = document.createElement("div");
     div.classList.add("producto-carrito");
-    div.innerHTML = `
-      <span class="col codigo">${item.id}</span>
-      <span class="col categoria">${item.categoria}</span>
-      <span class="col producto">${item.nombre}</span>
-      <span class="col precio">$${item.precio.toLocaleString()}</span>
-    `;
+   div.innerHTML = `
+  <span class="col codigo">${item.id}</span>
+  <span class="col categoria">${item.categoria}</span>
+  <span class="col producto">${item.nombre}</span>
+  <span class="col precio">$${finalPrice.toLocaleString()}</span>
+    ${
+      esDuoc
+        ? `<s>$${item.precio.toLocaleString()}</s> $${precioFinal.toLocaleString()} <small>(20% desc)</small>`
+        : `$${item.precio.toLocaleString()}`
+    }
+  </span>
+`;
+
     contenedor.appendChild(div);
   });
   const totalDiv = document.getElementById("total-compra");
-  totalDiv.textContent = `Total: $${total.toLocaleString()} CLP`;
+  totalDiv.textContent = `Total: $${total.toLocaleString()} CLP${esDuoc ? "(con descuento Duoc)":""}`;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
