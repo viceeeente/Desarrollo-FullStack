@@ -54,7 +54,7 @@ function mostrarCarrito() {
     if(esDuoc) {
       finalPrice = Math.round(item.precio * 0.8);
     }
-    total += item.precio;
+    total += finalPrice;
     const div = document.createElement("div");
     div.classList.add("producto-carrito");
    div.innerHTML = `
@@ -64,7 +64,7 @@ function mostrarCarrito() {
   <span class="col precio">$${finalPrice.toLocaleString()}</span>
     ${
       esDuoc
-        ? `<s>$${item.precio.toLocaleString()}</s> $${precioFinal.toLocaleString()} <small>(20% desc)</small>`
+        ? `<s>$${item.precio.toLocaleString()}</s> $${finalPrice.toLocaleString()} <small>(20% desc)</small>`
         : `$${item.precio.toLocaleString()}`
     }
   </span>
