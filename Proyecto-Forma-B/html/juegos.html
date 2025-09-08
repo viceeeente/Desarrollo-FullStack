@@ -105,21 +105,34 @@
   <script src="../js/carrito.js"></script>
   
   <script>
-    productos.forEach(producto => {
-      const precioElemento = document.getElementById(`precio-${producto.id}`);
-      const nombreFront = document.getElementById(`nombre-front-${producto.id}`);
-      const nombreBack = document.getElementById(`nombre-back-${producto.id}`);
-      
-      if (precioElemento) {
-        precioElemento.textContent = `$${producto.precio.toLocaleString("es-CL")} CLP`;
-      }
-      if (nombreFront) {
-        nombreFront.textContent = producto.nombre;
-      }
-      if (nombreBack) {
-        nombreBack.textContent = producto.nombre;
-      }
-    });
+    const userData = JSON.parse(localStorage.getItem("userData"));
+const esDuoc = userData && userData.email && userData.email.toLowerCase().endsWith("@duocuc.cl");
+
+productos.forEach(producto => {
+  const precioElemento = document.getElementById(`precio-${producto.id}`);
+  const nombreFront = document.getElementById(`nombre-front-${producto.id}`);
+  const nombreBack = document.getElementById(`nombre-back-${producto.id}`);
+
+  let precioFinal = producto.precio;
+
+  if (esDuoc) {
+    precioFinal = Math.round(producto.precio * 0.8);
+  }
+
+  if (precioElemento) {
+    precioElemento.innerHTML = esDuoc
+      ? `<s>$${producto.precio.toLocaleString("es-CL")}</s><br><strong style="color: green;">$${precioFinal.toLocaleString("es-CL")} CLP</strong><br><small>(20% DCTO DUOC)</small>`
+      : `<strong>$${producto.precio.toLocaleString("es-CL")} CLP</strong>`;
+  }
+
+  if (nombreFront) {
+    nombreFront.textContent = producto.nombre;
+  }
+  if (nombreBack) {
+    nombreBack.textContent = producto.nombre;
+  }
+});
+
   </script>
 <footer class="footer">
   <div class="footer-content">
