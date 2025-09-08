@@ -1,0 +1,54 @@
+# Documento ERS- Especificación de Requisitos del Software
+
+
+Proyecto : Tienda Level-UP Gamer
+Versión : 1.0 
+Fecha : 06-09-2025 (por ahora, despues se modifica)
+Equipo : Vicente Alvarez (Code Master Oracle Boy), Samuel Gallardo
+# 1.Requerimientos
+  1.1 Requerimientos Funcionales:
+  RF-1: Registro y Autentificacion de Usuarios (Mayores de 18 años, Descuento del 20% con correos Duoc)
+  RF-2: Gestión de Perfiles (Actualizacion de informacion y preferencias de compra)
+  RF-3: Visualización de catálogo con categorías (Juegos de Mesa, Accesorios, Consolas, Computadores Gamers, Sillas Gamers, Mouse, Mousepad, Poleras y Polerones Personalizados, Servicio Técnico)
+  RF-4: Carrito de Compras (Agregar, Eliminar, Modificar Productos y mostrar resumen con el total de la compra)
+  RF-5: Programa de Referidos y Gamificación (codigos de invitacion y puntos levelUp)
+  RF-6: Reseñas y Calificaciones
+1.2 Requerimientos No Funcionales:
+  RNF-1: Interfaz Visual gamer intuitiva y responsiva
+  RNF-2: Compatibilidad con navegadores modernos
+  RNF-3:  Tiempo de carga menor a 3 segundos
+  RNF-4 Validaciones en formularios para seguridad básica
+1.3 Restricciones:
+  El desarrollo se limita a HTML, CSS, y JavaScript
+  No incluye BackEnd ni base de datos en esta versión inicial
+  El proyecto debe estar alojado en un repositorio público en Github
+1.4 Requerimientos Tecnicos:
+  RT-1 - Lenguajes de Programación: 
+  El sistema debe ser desarrollado utilizando HTML, CSS, y JavaScript
+  RT-2 - Compatibilidad de Navegadores:
+   El sistema debe funcionar correctamente en navegadores modernos como Google Chrome, FireFox y Microsoft Edge
+  RT-3 - Diseño Responsivo: 
+  El sistema debe adaptarse a diferentes tamaños de pantallas (Computadores, tablets, smartphones etc)
+  RT-4 - Control de Versiones:
+  Todo el código fuente debe mantenerse en un repositorio Github Publico 
+  RT-5 - Entorno de Desarrollo:
+  Se recomienda el uso de Visual Studio Code como editor Principal
+  RT-6 Estándares de Diseño:
+  El frontend debe seguir esquemas de colores predefinido (Negro, Azul Electrico , Verde Neon)
+  las fuentes utilizadas deben ser Roboto y Orbitron, ambas de google fonts
+  RT-7 - Interacción con el Usuario:
+  Validación de formularios usando JavaScript
+  Uso de eventos dinámicos en botones y menús
+  RT-8 - Infraestructura de Pruebas:
+  El sistema debe poder ejecutarse de forma local en cualquier equipo sin necesidad de instalar un software adicional (solo navegador web)
+#2 .Herramientas
+2.1 Lenguajes De Programación: HTML, CSS, JavaScript
+  2.2 Control de Versiones: GitHub
+  2.3 Plataforma (o Entorno de desarrollo) : Visual Studio Code
+# 3.Propuestas del Proyecto
+  Crear una tienda online gamer con diseño atractivo y moderno
+  Implementar un carrito de compras funcional en frontend
+  incluir un sistema de referidos y gamificación para fidelizar clientes
+  incorporar reseñas, blogs, noticias y comunidad gamer
+  integrar redes sociales y un chat que redirija a WhatsappNigga para soporte Tecnico
+  Mostrar mapa de eventos gamer en chile para potenciar la comunidad 
