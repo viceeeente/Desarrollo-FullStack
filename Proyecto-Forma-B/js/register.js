@@ -83,6 +83,8 @@ form.addEventListener('submit', function (e) {
     if (password.value.length < 4) errores.push("La contraseña debe tener al menos 4 caracteres.");
     if (password.value !== password2.value) errores.push("Las contraseñas no coinciden.");
 
+    const isDuocUser = email.value.trim().toLowerCase().endsWith("@duocuc.cl");
+
     if (errores.length > 0) {
         error.innerHTML = errores.map(e => `<p>${e}</p>`).join("");
         return;
@@ -92,7 +94,8 @@ form.addEventListener('submit', function (e) {
         name: names.value,
         username: user.value,
         email: email.value,
-        password: password.value
+        password: password.value,
+        idDuocUser: isDuocUser
     };
 
     localStorage.setItem("userData", JSON.stringify(userData));
