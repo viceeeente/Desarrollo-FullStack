@@ -1,4 +1,5 @@
 const names = document.getElementById("name");
+const birthdate = document.getElementById("birthdate");
 const user = document.getElementById("user");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
@@ -16,6 +17,34 @@ names.addEventListener('blur' ,function(e) {
         names.classList.remove("error");
     }
 });
+
+document.addEventListener('DOMContentLoaded',() =>{
+    const today = new Date().toISOString().split("T")[0];
+    birthdate.setAttribute('max',today);
+});
+
+birthdate.addEventListener('blur', function(){
+    if(!isValidAge(birthdate.value)){
+        birthdate.classList.add("error");
+        set.add("<p>Desbes ser mayor de 18 años</p>")
+    }else{
+        birthdate.classList.remove("error");
+    }
+});
+
+function isValidAge(dateString) {
+    if(!dateString) return false;
+    const birth = new Date(dateString);
+    const today = new Date();
+
+    let age = today.getFullYear() - birth.getFullYear();
+    const m = today.getMonth() - birth.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
+        age--;
+    }
+
+    return age >= 18;
+}
 user.addEventListener('blur' ,function(e) {
     if(user.value.length === 0){
         user.classList.add("error");
@@ -48,6 +77,7 @@ form.addEventListener('submit', function (e) {
     const errores = [];
 
     if (names.value.trim() === "") errores.push("Completa el campo Nombre.");
+    if(!isValidAge(birthdate.value)) errores.push("Desbes ser mayor de 18 años")
     if (user.value.trim() === "") errores.push("Completa el campo Usuario.");
     if (!email.value.includes("@")) errores.push("Correo inválido.");
     if (password.value.length < 4) errores.push("La contraseña debe tener al menos 4 caracteres.");
