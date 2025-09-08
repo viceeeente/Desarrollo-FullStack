@@ -142,20 +142,16 @@
     });
   </script>
 
-  <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
   <script>
   document.addEventListener('DOMContentLoaded', function () {
-    // Crear el mapa (sin centrar ni hacer zoom inicialmente)
     const map = L.map('map');
 
-    // Agregar el mapa base (OpenStreetMap)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
-    // Lista de ubicaciones
     const ubicaciones = [
       { nombre: 'Sucursal Santiago Centro', coords: [-33.4489, -70.6693] },
       { nombre: 'Sucursal Maipú', coords: [-33.5167, -70.7617] },
@@ -164,10 +160,8 @@
       { nombre: 'Sucursal Temuco', coords: [-38.7359, -72.5904] }
     ];
 
-    // Crear un array de coordenadas para calcular los límites
     const bounds = [];
 
-    // Agregar marcadores y guardar coordenadas
     ubicaciones.forEach(ubicacion => {
       const marker = L.marker(ubicacion.coords)
         .addTo(map)
@@ -175,8 +169,7 @@
       bounds.push(ubicacion.coords);
     });
 
-    // Ajustar vista para que todas las ubicaciones entren en el mapa
-    map.fitBounds(bounds, { padding: [50, 50] }); // padding opcional para dejar márgenes
+    map.fitBounds(bounds, { padding: [50, 50] }); 
   });
 </script>
 <footer class="footer">
