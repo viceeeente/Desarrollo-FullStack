@@ -10,14 +10,14 @@ const Header = () => {
         <div class="dropdown">
           <button id="categories-btn">Categorías</button>
           <ul class="dropdown-menu">
-            <li><a href="#consolas">Consolas</a></li>
-            <li><a href="#pc">PC Gamer</a></li>
-            <li><a href="#juegos">Juegos</a></li>
-            <li><a href="#accesorios">Accesorios</a></li>
-            <li><a href="#mouse">Mouse</a></li>
-            <li><a href="#mousepad">Mousepad</a></li>
-            <li><a href="#sillas">Sillas Gamers</a></li>
-            <li><a href="#poleras">Poleras Personalizadas</a></li>
+            <li><a href="/consolas">Consolas</a></li>
+            <li><a href="/pc">PC Gamer</a></li>
+            <li><a href="/juegos">Juegos</a></li>
+            <li><a href="/accesorios">Accesorios</a></li>
+            <li><a href="/mouse">Mouse</a></li>
+            <li><a href="/mousepad">Mousepad</a></li>
+            <li><a href="/sillas">Sillas Gamers</a></li>
+            <li><a href="/poleras">Poleras Personalizadas</a></li>
           </ul>
         </div>
 
@@ -28,7 +28,7 @@ const Header = () => {
 
         <div class="auth-buttons">
           <button id="auth-btn">Iniciar Sesión</button>
-          <a href="#carrito" id="cart-btn-js">
+          <a href="/carrito" id="cart-btn-js">
             <img src="https://cdn-icons-png.flaticon.com/512/9341/9341730.png" alt="Carrito" />
           </a>
         </div>
