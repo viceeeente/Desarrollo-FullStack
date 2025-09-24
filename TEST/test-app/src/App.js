@@ -1,14 +1,22 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Homepage from './pages/Homepage';  
+import ConsolePage from './pages/Consoles'
 import './App.css';
 
 function App() {
   return (
-    <div className="app">
-      <Header />
-      <Homepage />
-    </div>
+      <Router>
+      <div className="app">
+        <Header />
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/consolas" element={<ConsolePage />}/>
+          </Routes>
+      
+      </div>
+    </Router>
   );
 }
 
