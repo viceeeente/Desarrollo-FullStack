@@ -1,10 +1,13 @@
-import React from 'react'; 
+import React from 'react';
+import Header from './components/Header';
+import Homepage from './pages/Homepage';  
+import './App.css';
 
 function App() {
   return (
-    <div>
-      <h1>WENA CHOROMBO</h1>
-      <p>test de la primera pagina</p>
+    <div className="app">
+      <Header />
+      <Homepage />
     </div>
   );
 }
