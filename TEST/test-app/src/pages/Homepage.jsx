@@ -1,9 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Homepage.css';
+import CategoriesSections from './CategoriesSections';
 
 const Homepage = () => {
   const categories = [
-    { name: 'Consolas', icon: '/assets/images/icons/consolas.png', link: '#consolas' },
+    { name: 'Consolas', icon: '/assets/images/icons/consolas.png', link: '/consolas' },
     { name: 'PC Gamer', icon: '/assets/images/icons/pc-gamer.png', link: '#pc' },
     { name: 'Juegos', icon: '/assets/images/icons/juegos.png', link: '#juegos' },
     { name: 'Accesorios', icon: '/assets/images/icons/accesorios.png', link: '#accesorios' },
@@ -25,10 +27,10 @@ const Homepage = () => {
 
       <section className="shortcuts">
         {categories.map((category, index) => (
-          <a key={index} href={category.link} className="shortcut-card">
+          <Link key={index} to={category.link} className="shortcut-card">
             <img src={category.icon} alt={category.name} />
             <h3>{category.name}</h3>
-          </a>
+          </Link>
         ))}
       </section>
 
