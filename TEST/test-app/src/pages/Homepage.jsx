@@ -33,10 +33,6 @@ const Homepage = () => {
           </Link>
         ))}
       </section>
-
-      <footer className="footer">
-        <p>&copy; 2024 Level-UP GAMER. Todos los derechos reservados.</p>
-      </footer>
     </div>
   );
 };
