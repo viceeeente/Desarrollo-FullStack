@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Homepage from './pages/Homepage';  
 import ConsolePage from './pages/Consoles';
 import Footer from './components/Footer';
+import PcPage from './pages/PC';
 import './App.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/consolas" element={<ConsolePage />}/>
+            <Route path='/pc' element={<PcPage/>}></Route>
           </Routes>  
         <Footer/>
       </div>
