@@ -6,7 +6,7 @@ import CategoriesSections from './CategoriesSections';
 const Homepage = () => {
   const categories = [
     { name: 'Consolas', icon: '/assets/images/icons/consolas.png', link: '/consolas' },
-    { name: 'PC Gamer', icon: '/assets/images/icons/pc-gamer.png', link: '#pc' },
+    { name: 'PC Gamer', icon: '/assets/images/icons/pc-gamer.png', link: '/pc' },
     { name: 'Juegos', icon: '/assets/images/icons/juegos.png', link: '#juegos' },
     { name: 'Accesorios', icon: '/assets/images/icons/accesorios.png', link: '#accesorios' },
     { name: 'Mouse', icon: '/assets/images/icons/mouse.png', link: '#mouse' },
