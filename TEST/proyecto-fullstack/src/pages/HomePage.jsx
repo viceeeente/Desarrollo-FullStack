@@ -2,18 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Homepage.css';
 import CategoriesSections from './CategorySections';
+import { categories } from '../js/categories/';
 
 const Homepage = () => {
-  const categories = [
-    { name: 'Consolas', icon: '/assets/images/icons/consolas.png', link: '/consolas' },
-    { name: 'PC Gamer', icon: '/assets/images/icons/pc-gamer.png', link: '/pc' },
-    { name: 'Juegos', icon: '/assets/images/icons/juegos.png', link: '/games' },
-    { name: 'Accesorios', icon: '/assets/images/icons/accesorios.png', link: '/accessories' },
-    { name: 'Mouse', icon: '/assets/images/icons/mouse.png', link: '/mouse' },
-    { name: 'Mousepad', icon: '/assets/images/icons/mousepad.png', link: '/mousepad' },
-    { name: 'Sillas Gamers', icon: '/assets/images/icons/sillas-gamer.png', link: '/chairs' },
-    { name: 'Poleras Personalizadas', icon: '/assets/images/icons/poleras.png', link: '/shirts' }
-  ];
 
   return (
     <div className="homepage">

@@ -1,12 +1,13 @@
 import React from 'react';
 import './Header.css';
 import CategoriesSections from '../pages/CategorySections';
+import logo from '../icons/logo.png';
 
 const Header = () => {
   return (
     <header>
       <nav id="main-menu">
-        <img src="/assets/images/logo.png" alt="Level-UP GAMER" />
+        <img src={logo} alt='icon'/>
         
         <CategoriesSections />
 
