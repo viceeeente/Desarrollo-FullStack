@@ -18,5 +18,5 @@ export const productos = [
   { id: "MP001", categoria: "Mousepad", nombre: "Mousepad Razer Goliathus Extended Chroma", precio: 29990, image:"https://dl.razerzone.com/src2/eeimages/1395/1395_goliathusextended.png", description:"Mousepad Razer Goliathus Extended Chroma con iluminación RGB y superficie optimizada para precisión y velocidad" },
   
   { id: "PP001", categoria: "Poleras Personalizadas", nombre: "Polera Gamer Personalizada 'Level-UP'", precio: 14990, image:"ttps://m.media-amazon.com/images/I/B1pppR4gVKL._CLa%7C2140%2C2000%7C91ISC-C9YRL.png%7C0%2C0%2C2140%2C2000%2B0.0%2C0.0%2C2140.0%2C2000.0_UY1000_.png", description:"La Polera Gamer Level-Up es cómoda, moderna y personalizada, ideal para jugadores que quieren estilo y identidad en su look." },
-
+  
 ];
