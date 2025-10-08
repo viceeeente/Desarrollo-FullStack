@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.css';
-import CategoriesSections from '../pages/CategorySections';
+import CategoriesSections from './CategorySections';
 import logo from '../icons/logo.png';
 
 const Header = () => {
