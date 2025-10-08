@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { productos } from "../js/products";
+import { productos } from "../../js/products";
 
 const PC = () => {
     const names = ["PC Gamer ASUS ROG Strix", "PC Gamer AMD Ryzen"]
@@ -33,7 +33,7 @@ const PC = () => {
               ))}
             </div>
             <Link to ="/">
-            <div class="back-button">
+            <div className="back-button">
                 <a>Volver al menú principal</a>    
             </div>
             </Link>

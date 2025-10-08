@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Homepage.css';
-import CategoriesSections from './CategorySections';
-import { categories } from '../js/categories/';
+import CategoriesSections from '../../components/CategorySections';
+import { categories } from '../../js/categories/';
 
 const Homepage = () => {
 

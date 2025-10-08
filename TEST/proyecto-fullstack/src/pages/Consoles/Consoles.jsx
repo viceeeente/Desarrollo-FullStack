@@ -1,7 +1,7 @@
 import React from "react";
 import './Consoles.css';
 import { Link } from "react-router-dom";
-import { productos } from '../js/products'
+import { productos } from '../../js/products'
 
 const Consoles = () => {
 

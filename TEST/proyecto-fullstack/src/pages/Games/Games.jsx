@@ -1,6 +1,6 @@
     import React from "react";
     import { Link } from "react-router-dom";
-    import { productos } from "../js/products";
+    import { productos } from "../../js/products";
 
     const Games = () =>{
         const names = ["Catan", "Carcassonne"]
@@ -12,7 +12,7 @@
             return (
                 <div className="consoled">
                     <section class="products-section">
-                        <h2>Consolas</h2>
+                        <h2>Juegos</h2>
                         <div className="products-container">
                   {filtredProducts.map((producto) => (
                     <div className="product-card" key={producto.id}>
@@ -34,7 +34,7 @@
                   ))}
                 </div>
                 <Link to ="/">
-                <div class="back-button">
+                <div className="back-button">
                     <a>Volver al menú principal</a>    
                 </div>
                 </Link>
