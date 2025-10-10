@@ -1,0 +1,266 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+html, body, #root {
+  height: 100%;
+  background-color: #000;
+  color: #fff;
+}
+
+#main-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  width: 100%;
+  background-color: #000;
+  padding: 0 2rem;
+}
+
+#main-menu img {
+  height: 60px;
+  width: auto;
+}
+
+.dropdown {
+  position: relative;
+  margin-left: 1rem;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background-color: #111;
+  min-width: 180px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px #000;
+  list-style: none;
+  padding: 0.5rem 0;
+  z-index: 10;
+}
+
+.dropdown-menu li {
+  padding: 0.7rem 1rem;
+}
+
+.dropdown-menu li:hover {
+  background-color: #1E90FF;
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.dropdown-menu li:hover a {
+  color: #000;
+  font-weight: bold;
+}
+
+#categories-btn {
+  border: none;
+  background-color: #111;
+  color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+#categories-btn:hover {
+  background-color: #39FF14;
+  color: black;
+}
+
+.search-bar {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  max-width: 400px;
+  margin: 0 1rem;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 0.6rem;
+  border-radius: 8px 0 0 8px;
+  border: none;
+  outline: none;
+  background-color: #111;
+  color: white;
+}
+
+.search-bar button {
+  padding: 0.6rem 1rem;
+  border: none;
+  background-color: #39FF14;
+  color: black;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.search-bar button:hover {
+  background-color: #1E90FF;
+  color: white;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.auth-buttons button {
+  background-color: #1E90FF;
+  color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.auth-buttons button:hover {
+  background-color: #39FF14;
+  color: black;
+}
+
+.auth-buttons a img {
+  height: 30px;
+  width: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.auth-buttons a:hover img {
+  transform: scale(1.2);
+}
+
+.shortcuts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #111;
+}
+
+.shortcut-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 150px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+}
+
+.shortcut-card img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease;
+}
+
+.shortcut-card h3 {
+  color: #1E90FF;
+  font-family: "Orbitron", sans-serif;
+  margin-top: 0.5rem;
+}
+
+.shortcut-card:hover {
+  transform: translateY(-5px);
+  background-color: #000;
+  box-shadow: 0 0 15px #39FF14;
+}
+
+.shortcut-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Map Section */
+.map-section {
+  background-color: #111;
+  padding: 2rem;
+}
+
+.map-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #222;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.map-container p {
+  font-size: 45px;
+  color: white;
+  width: 40%;
+  padding-right: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+#map {
+  width: 60%;
+  height: 300px;
+  border-radius: 8px;
+}
+
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  border-top: 1px solid #333;
+  margin-top: 2rem;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-content p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-links a img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
+}
+
+.social-links a:hover img {
+  transform: scale(1.2);
+}
