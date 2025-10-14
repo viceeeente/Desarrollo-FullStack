@@ -4,30 +4,26 @@ import Navbar from "../organisms/Navbar";
 import Footer from "../organisms/Footer";
 import BackToHomeButton from "../atoms/BackToHomeButton";
 
-
-import PC from "../../assets/pc.jpg";
-import PCRyzen from "../../assets/pc-ryzen.webp";
-
 const productos = [
   {
-    id: "PC001",
-    nombre: "PC Gamer Ryzen 7 RTX 4060",
-    precio: 899990,
+    id: "JM001",
+    nombre: "Catan",
+    precio: 29900,
     descripcion:
-      "Potente equipo con procesador Ryzen 7 y tarjeta gráfica RTX 4060. Ideal para gaming en 2K y multitareas exigentes.",
-    img: PC,
+      ".",
+    img: "https://www.esrb.org/wp-content/uploads/2024/09/slide_playstation-5.png",
   },
   {
-    id: "PC002",
-    nombre: "Notebook ASUS TUF Gaming",
-    precio: 749990,
+    id: "JM002",
+    nombre: "Carcassonne",
+    precio: 24990,
     descripcion:
-      "Notebook gamer con pantalla 144Hz, Ryzen 5 y GPU GTX 1650, diseñado para juegos competitivos y rendimiento.",
-    img: PCRyzen,
+      "",
+    img: "https://media.solotodo.com/media/nav_items/xboxx.png",
   },
 ];
 
-export default function Pc() {
+export default function Consolas() {
   const [esDuoc, setEsDuoc] = useState(false);
 
   useEffect(() => {
@@ -56,15 +52,14 @@ export default function Pc() {
   };
 
   const handleAddToCart = (id) => {
-    alert(`Producto agregado al carrito: ${id}`);
+    alert(`Producto agregado: ${id}`);
   };
 
   return (
     <>
       <Navbar />
-
       <main className="products-section">
-        <h2>PC y Notebooks</h2>
+        <h2>Juegos</h2>
         <div className="products-container">
           {productos.map((p) => (
             <div className="product-card" key={p.id}>
@@ -74,7 +69,6 @@ export default function Pc() {
                   <h3>{p.nombre}</h3>
                   <p>{formatearPrecio(p.precio)}</p>
                 </div>
-
                 <div className="card-back">
                   <h3>{p.nombre}</h3>
                   <p>{p.descripcion}</p>
@@ -83,7 +77,7 @@ export default function Pc() {
                     className="add-to-cart"
                     onClick={() => handleAddToCart(p.id)}
                   >
-                    Agregar
+                    Agregar al carrito
                   </button>
                 </div>
               </div>
@@ -92,7 +86,6 @@ export default function Pc() {
         </div>
         <BackToHomeButton />
       </main>
-
       <Footer />
     </>
   );

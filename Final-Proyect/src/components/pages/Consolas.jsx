@@ -59,7 +59,6 @@ export default function Consolas() {
     <>
       <Navbar />
       <main className="products-section">
-        <BackToHomeButton />
         <h2>Consolas</h2>
         <div className="products-container">
           {productos.map((p) => (
@@ -85,6 +84,7 @@ export default function Consolas() {
             </div>
           ))}
         </div>
+        <BackToHomeButton />
       </main>
       <Footer />
     </>
