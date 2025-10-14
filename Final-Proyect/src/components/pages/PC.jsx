@@ -2,28 +2,30 @@ import React, { useEffect, useState } from "react";
 import "../../assets/styles/productos.css";
 import Navbar from "../organisms/Navbar";
 import Footer from "../organisms/Footer";
-import BackToHomeButton from "../atoms/BackToHomeButton";
+
+import PC from "../../assets/pc.jpg";
+import PCRyzen from "../../assets/pc-ryzen.webp";
 
 const productos = [
   {
-    id: "CO001",
-    nombre: "PlayStation 5",
-    precio: 499990,
+    id: "PC001",
+    nombre: "PC Gamer Ryzen 7 RTX 4060",
+    precio: 899990,
     descripcion:
-      "Consola de última generación de Sony, con gráficos impresionantes y tiempos de carga ultrarrápidos.",
-    img: "https://www.esrb.org/wp-content/uploads/2024/09/slide_playstation-5.png",
+      "Potente equipo con procesador Ryzen 7 y tarjeta gráfica RTX 4060. Ideal para gaming en 2K y multitareas exigentes.",
+    img: PC,
   },
   {
-    id: "CO002",
-    nombre: "Xbox Series X",
-    precio: 449990,
+    id: "PC002",
+    nombre: "Notebook ASUS TUF Gaming",
+    precio: 749990,
     descripcion:
-      "La consola más potente de Microsoft con soporte 4K, Game Pass y cientos de títulos disponibles.",
-    img: "https://media.solotodo.com/media/nav_items/xboxx.png",
+      "Notebook gamer con pantalla 144Hz, Ryzen 5 y GPU GTX 1650, diseñado para juegos competitivos y rendimiento.",
+    img: PCRyzen,
   },
 ];
 
-export default function Consolas() {
+export default function Pc() {
   const [esDuoc, setEsDuoc] = useState(false);
 
   useEffect(() => {
@@ -52,15 +54,15 @@ export default function Consolas() {
   };
 
   const handleAddToCart = (id) => {
-    alert(`Producto agregado: ${id}`);
+    alert(`Producto agregado al carrito: ${id}`);
   };
 
   return (
     <>
       <Navbar />
+
       <main className="products-section">
-        <BackToHomeButton />
-        <h2>Consolas</h2>
+        <h2>PC y Notebooks</h2>
         <div className="products-container">
           {productos.map((p) => (
             <div className="product-card" key={p.id}>
@@ -70,6 +72,7 @@ export default function Consolas() {
                   <h3>{p.nombre}</h3>
                   <p>{formatearPrecio(p.precio)}</p>
                 </div>
+
                 <div className="card-back">
                   <h3>{p.nombre}</h3>
                   <p>{p.descripcion}</p>
@@ -78,7 +81,7 @@ export default function Consolas() {
                     className="add-to-cart"
                     onClick={() => handleAddToCart(p.id)}
                   >
-                    Agregar al carrito
+                    Agregar
                   </button>
                 </div>
               </div>
@@ -86,6 +89,7 @@ export default function Consolas() {
           ))}
         </div>
       </main>
+
       <Footer />
     </>
   );

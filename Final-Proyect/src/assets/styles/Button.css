@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+.base-button {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.back-home-button {
+  margin-bottom: 1rem;
+  background-color: #1E90FF;
+  color: #fff;
+  border-radius: 8px;
+}
+
+.back-home-button:hover {
+  background-color: #39FF14;
+  color: #000;
+}
+.card-back .add-to-cart {
+  background: #1E90FF;
+  color: #fff;
+  padding: 0.6rem 1rem;
+}

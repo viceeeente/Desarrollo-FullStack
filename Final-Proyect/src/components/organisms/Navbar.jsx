@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
 import DropdownMenu from "../molecules/DropdownMenu";
+import SearchBar from "../molecules/SearchBar";
+import AuthButton from "../molecules/AuthButton";
+import logo from "../../assets/logo.png";
+import CartLogo from "../../assets/cartLogo.png";
 
 export default function Navbar() {
   const [userName, setUserName] = useState("");
@@ -15,13 +19,13 @@ export default function Navbar() {
   const handleLogout = () => {
     localStorage.removeItem("isLoggedIn");
     localStorage.removeItem("userName");
-    window.location.reload();
+    window.location.reload(); 
   };
 
   return (
     <header>
       <nav id="main-menu">
-        <img src="/logo/logo.png" alt="Logo" />
+        <img src={logo} alt="Logo" id="logo" />
 
         <div id="greeting">
           {isLoggedIn ? `¡Bienvenido, ${userName}!` : ""}
@@ -29,28 +33,9 @@ export default function Navbar() {
 
         <DropdownMenu />
 
-        <div className="search-bar">
-          <input type="text" placeholder="Buscar productos..." />
-          <button>🔍</button>
-        </div>
+        <SearchBar />
 
-        <div className="auth-buttons">
-          {isLoggedIn ? (
-            <button onClick={handleLogout} className="logout-btn">
-              Cerrar Sesión
-            </button>
-          ) : (
-            <a href="/login">
-              <button>Iniciar Sesión</button>
-            </a>
-          )}
-          <a href="/carrito">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/9341/9341730.png"
-              alt="Carrito"
-            />
-          </a>
-        </div>
+        <AuthButton isLoggedIn={isLoggedIn} onLogout={handleLogout} />
       </nav>
     </header>
   );
