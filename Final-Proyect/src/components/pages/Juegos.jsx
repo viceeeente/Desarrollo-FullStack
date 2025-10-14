@@ -4,6 +4,9 @@ import Navbar from "../organisms/Navbar";
 import Footer from "../organisms/Footer";
 import BackToHomeButton from "../atoms/BackToHomeButton";
 
+import Catan from "../../assets/CatanLogo.png";
+import Carcassonne from "../../assets/CarcassonneLogo.webp";
+
 const productos = [
   {
     id: "JM001",
@@ -11,7 +14,7 @@ const productos = [
     precio: 29900,
     descripcion:
       ".",
-    img: "https://www.esrb.org/wp-content/uploads/2024/09/slide_playstation-5.png",
+    img: Catan,
   },
   {
     id: "JM002",
@@ -19,7 +22,7 @@ const productos = [
     precio: 24990,
     descripcion:
       "",
-    img: "https://media.solotodo.com/media/nav_items/xboxx.png",
+    img: Carcassonne,
   },
 ];
 

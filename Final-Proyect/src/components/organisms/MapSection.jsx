@@ -16,13 +16,10 @@ export default function MapSection() {
       attribution: "© OpenStreetMap contributors",
     }).addTo(map);
 
-    const ubicaciones = [
-      { nombre: "Sucursal Santiago Centro", coords: [-33.4489, -70.6693] },
-      { nombre: "Sucursal Maipú", coords: [-33.5167, -70.7617] },
-      { nombre: "Sucursal Las Condes", coords: [-33.4089, -70.5671] },
-      { nombre: "Sucursal Viña del Mar", coords: [-33.0245, -71.5518] },
-      { nombre: "Sucursal Temuco", coords: [-38.7359, -72.5904] },
-    ];
+  const ubicaciones = [
+  { nombre: "Sucursal Chorombo", coords: [-33.544063, -71.224145] },
+];
+
 
     const bounds = [];
 
