@@ -29,3 +29,15 @@
   color: #fff;
   padding: 0.6rem 1rem;
 }
+
+.go-to-cart-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.cart-icon {
+  width: 24px;
+  height: 24px;
+}

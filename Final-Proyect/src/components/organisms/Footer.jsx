@@ -1,8 +1,8 @@
 import React from "react";
-import FacebookLogo from "../../assets/FacebookLogo.png";
-import InstagramLogo from "../../assets/IgLogo.png";
-import WhatsappLogo from "../../assets/wspLogo.png";
-import TwitterLogo from "../../assets/twitterLogo.png";
+import FacebookLogo from "../../assets/icons/FacebookLogo.png";
+import InstagramLogo from "../../assets/icons/IgLogo.png";
+import WhatsappLogo from "../../assets/icons/wspLogo.png";
+import TwitterLogo from "../../assets/icons/twitterLogo.png";
 
 
 export default function Footer() {

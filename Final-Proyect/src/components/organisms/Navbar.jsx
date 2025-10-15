@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import DropdownMenu from "../molecules/DropdownMenu";
 import SearchBar from "../molecules/SearchBar";
+import CartButton from "../atoms/CartButton";
 import AuthButton from "../molecules/AuthButton";
-import logo from "../../assets/logo.png";
-import CartLogo from "../../assets/cartLogo.png";
+import logo from "../../assets/icons/logo.png";
 
 export default function Navbar() {
   const [userName, setUserName] = useState("");
@@ -36,6 +36,8 @@ export default function Navbar() {
         <SearchBar />
 
         <AuthButton isLoggedIn={isLoggedIn} onLogout={handleLogout} />
+
+        <CartButton />
       </nav>
     </header>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import Welcome from "../molecules/Welcome";
 import Navbar from "../organisms/Navbar";
 import Shortcuts from "../organisms/Shortcuts";
 import MapSection from "../organisms/MapSection";
@@ -9,6 +10,7 @@ export default function Index() {
     <>
       <Navbar />
       <main>
+        <Welcome />
         <Shortcuts />
         <MapSection />
       </main>

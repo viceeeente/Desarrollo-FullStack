@@ -4,6 +4,9 @@ import Navbar from "../organisms/Navbar";
 import Footer from "../organisms/Footer";
 import BackToHomeButton from "../atoms/BackToHomeButton";
 
+import PlayStation5 from "../../assets/images/CO001.png";
+import XboxSeriesX from "../../assets/images/CO002.png";
+
 const productos = [
   {
     id: "CO001",
@@ -11,16 +14,16 @@ const productos = [
     precio: 499990,
     descripcion:
       "Consola de última generación de Sony, con gráficos impresionantes y tiempos de carga ultrarrápidos.",
-    img: "https://www.esrb.org/wp-content/uploads/2024/09/slide_playstation-5.png",
+    img: PlayStation5,
   },
   {
     id: "CO002",
     nombre: "Xbox Series X",
     precio: 449990,
-    descripcion:
-      "La consola más potente de Microsoft con soporte 4K, Game Pass y cientos de títulos disponibles.",
-    img: "https://media.solotodo.com/media/nav_items/xboxx.png",
+    descripcion: "La consola más potente de Microsoft con soporte para 4K, Game Pass y cientos de títulos disponibles.",
+    img: XboxSeriesX,
   },
+
 ];
 
 export default function Consolas() {

@@ -4,30 +4,27 @@ import Navbar from "../organisms/Navbar";
 import Footer from "../organisms/Footer";
 import BackToHomeButton from "../atoms/BackToHomeButton";
 
-
-import PC from "../../assets/images/pc.jpg";
-import PCRyzen from "../../assets/images/pc-ryzen.webp";
-
 const productos = [
   {
-    id: "PC001",
-    nombre: "PC Gamer Ryzen 7 RTX 4060",
-    precio: 899990,
+    id: "AC001",
+    nombre: "Controlador Inalambrico Xbox Series X",
+    precio: 59990,
     descripcion:
-      "Potente equipo con procesador Ryzen 7 y tarjeta gráfica RTX 4060. Ideal para gaming en 2K y multitareas exigentes.",
-    img: PC,
+    "",
+    img: "",
   },
   {
-    id: "PC002",
-    nombre: "Notebook ASUS TUF Gaming",
-    precio: 749990,
+    id: "",
+    nombre: "Auriculares Gamer HyperX Cloud II",
+    precio: 79990,
     descripcion:
-      "Notebook gamer con pantalla 144Hz, Ryzen 5 y GPU GTX 1650, diseñado para juegos competitivos y rendimiento.",
-    img: PCRyzen,
-  },
+    "",
+    img: "",
+  }
+
 ];
 
-export default function Pc() {
+export default function Consolas() {
   const [esDuoc, setEsDuoc] = useState(false);
 
   useEffect(() => {
@@ -56,15 +53,14 @@ export default function Pc() {
   };
 
   const handleAddToCart = (id) => {
-    alert(`Producto agregado al carrito: ${id}`);
+    alert(`Producto agregado: ${id}`);
   };
 
   return (
     <>
       <Navbar />
-
       <main className="products-section">
-        <h2>PC y Notebooks</h2>
+        <h2>Consolas</h2>
         <div className="products-container">
           {productos.map((p) => (
             <div className="product-card" key={p.id}>
@@ -74,7 +70,6 @@ export default function Pc() {
                   <h3>{p.nombre}</h3>
                   <p>{formatearPrecio(p.precio)}</p>
                 </div>
-
                 <div className="card-back">
                   <h3>{p.nombre}</h3>
                   <p>{p.descripcion}</p>
@@ -83,7 +78,7 @@ export default function Pc() {
                     className="add-to-cart"
                     onClick={() => handleAddToCart(p.id)}
                   >
-                    Agregar
+                    Agregar al carrito
                   </button>
                 </div>
               </div>
@@ -92,7 +87,6 @@ export default function Pc() {
         </div>
         <BackToHomeButton />
       </main>
-
       <Footer />
     </>
   );

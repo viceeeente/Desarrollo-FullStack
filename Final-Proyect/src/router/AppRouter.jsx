@@ -3,6 +3,11 @@ import Index from "../components/pages/Index";
 import Consolas from "../components/pages/Consolas";
 import PC from "../components/pages/PC";
 import Juegos from "../components/pages/Juegos";
+import Accesorios from "../components/pages/Accesorios";
+import Mouse from "../components/pages/Mouse";
+import Mousepad from "../components/pages/Mousepad";
+import Silla from "../components/pages/Silla";
+import Poleras from "../components/pages/Poleras";
 
 export default function AppRouter() {
   return (
@@ -12,6 +17,11 @@ export default function AppRouter() {
         <Route path="/consolas" element={<Consolas />} />
         <Route path="/pc" element={<PC />} />
         <Route path="/juegos" element={<Juegos />} />
+        <Route path="/accesorios" element={<Accesorios />} />
+        <Route path="/mouse" element={<Mouse />} />
+        <Route path="/mousepad" element={<Mousepad />} />
+        <Route path="/sillas-gamers" element={<Silla />} />
+        <Route path="/poleras" element={<Poleras />} />
       </Routes>
     </Router>
   );
