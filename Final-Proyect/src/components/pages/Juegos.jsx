@@ -4,8 +4,8 @@ import Navbar from "../organisms/Navbar";
 import Footer from "../organisms/Footer";
 import BackToHomeButton from "../atoms/BackToHomeButton";
 
-import Catan from "../../assets/images/CatanLogo.png";
-import Carcassonne from "../../assets/images/CarcassonneLogo.webp";
+import Catan from "../../assets/images/JM001.png";
+import Carcassonne from "../../assets/images/JM002.webp";
 
 const productos = [
   {

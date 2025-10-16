@@ -4,22 +4,25 @@ import Navbar from "../organisms/Navbar";
 import Footer from "../organisms/Footer";
 import BackToHomeButton from "../atoms/BackToHomeButton";
 
+import PoleraLVLUp from "../../assets/images/PP001.webp";
+import PoleraGameOn from "../../assets/images/PP002.webp";
+
 const productos = [
   {
-    id: "",
-    nombre: "",
-    precio: 0,
+    id: "PP001",
+    nombre: "Polera Gamer Personalizada 'Level Up'",
+    precio: 14990,
     descripcion:
     "",
-    img: "",
+    img: PoleraLVLUp,
   },
   {
-    id: "",
-    nombre: "",
-    precio: 0,
+    id: "PP002",
+    nombre: "Polera Gamer 'Game On'",
+    precio: 14990,
     descripcion:
     "",
-    img: "",
+    img: PoleraGameOn,
   }
 
 ];

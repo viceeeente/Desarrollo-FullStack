@@ -4,27 +4,30 @@ import Navbar from "../organisms/Navbar";
 import Footer from "../organisms/Footer";
 import BackToHomeButton from "../atoms/BackToHomeButton";
 
+import MouseLogitech from "../../assets/images/MS001.webp";
+import MouseRazer from "../../assets/images/MS002.webp";
+
 const productos = [
   {
-    id: "",
-    nombre: "",
-    precio: 0,
+    id: "MS001",
+    nombre: "Mouse Gamer Logitech G502 HERO",
+    precio: 49990,
     descripcion:
-    "",
-    img: "",
+    "Mouse Logitech G502 HERO con sensor HERO 25K, 11 botones programables y pesos ajustables",
+    img: MouseLogitech,
   },
   {
-    id: "",
-    nombre: "",
-    precio: 0,
+    id: "MS002",
+    nombre: "Mouse Gamer Razer DeathAdder V2",
+    precio: 29990,
     descripcion:
-    "",
-    img: "",
+    "Mouse Razer Deathadder V2 con sensor óptico de 8.500 dpi y diseño ergonómico Dimensiones y peso reducido para un mouse con un rendimiento excepcional y una ergonomía sin igual.",
+    img: MouseRazer,
   }
 
 ];
 
-export default function Consolas() {
+export default function Mouse() {
   const [esDuoc, setEsDuoc] = useState(false);
 
   useEffect(() => {
@@ -60,7 +63,7 @@ export default function Consolas() {
     <>
       <Navbar />
       <main className="products-section">
-        <h2>Consolas</h2>
+        <h2>Mouse</h2>
         <div className="products-container">
           {productos.map((p) => (
             <div className="product-card" key={p.id}>

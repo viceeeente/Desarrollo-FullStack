@@ -4,27 +4,30 @@ import Navbar from "../organisms/Navbar";
 import Footer from "../organisms/Footer";
 import BackToHomeButton from "../atoms/BackToHomeButton";
 
+import SillaSecretLab from "../../assets/images/SG001.webp";
+import SillaDXRacer from "../../assets/images/SG002.png";
+
 const productos = [
   {
-    id: "",
-    nombre: "",
-    precio: 0,
+    id: "SG001",
+    nombre: "Silla Gamer Secretlab TITAN",
+    precio: 349990,
     descripcion:
-    "",
-    img: "",
+    "La Silla Gamer SecretLab Titan ofrece máxima comodidad y ergonomía, con soporte lumbar ajustable, reposabrazos 4D y respaldo reclinable.",
+    img: SillaSecretLab,
   },
   {
-    id: "",
-    nombre: "",
-    precio: 0,
+    id: "SG002",
+    nombre: "Silla Gamer DXRacer Formula Series",
+    precio: 399990,
     descripcion:
     "",
-    img: "",
+    img: SillaDXRacer,
   }
 
 ];  
 
-export default function Consolas() {
+export default function Sillas() {
   const [esDuoc, setEsDuoc] = useState(false);
 
   useEffect(() => {
@@ -60,7 +63,7 @@ export default function Consolas() {
     <>
       <Navbar />
       <main className="products-section">
-        <h2>Consolas</h2>
+        <h2>Sillas Gamers</h2>
         <div className="products-container">
           {productos.map((p) => (
             <div className="product-card" key={p.id}>

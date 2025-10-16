@@ -5,8 +5,8 @@ import Footer from "../organisms/Footer";
 import BackToHomeButton from "../atoms/BackToHomeButton";
 
 
-import PC from "../../assets/images/pc.jpg";
-import PCRyzen from "../../assets/images/pc-ryzen.webp";
+import PCRyzen from "../../assets/images/PC001.webp";
+import PC from "../../assets/images/PC002.jpg";
 
 const productos = [
   {
@@ -15,7 +15,7 @@ const productos = [
     precio: 899990,
     descripcion:
       "Potente equipo con procesador Ryzen 7 y tarjeta gráfica RTX 4060. Ideal para gaming en 2K y multitareas exigentes.",
-    img: PC,
+    img: PCRyzen,
   },
   {
     id: "PC002",
@@ -23,7 +23,7 @@ const productos = [
     precio: 749990,
     descripcion:
       "Notebook gamer con pantalla 144Hz, Ryzen 5 y GPU GTX 1650, diseñado para juegos competitivos y rendimiento.",
-    img: PCRyzen,
+    img: PC,
   },
 ];
 

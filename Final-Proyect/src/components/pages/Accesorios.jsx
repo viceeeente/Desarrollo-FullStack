@@ -4,27 +4,30 @@ import Navbar from "../organisms/Navbar";
 import Footer from "../organisms/Footer";
 import BackToHomeButton from "../atoms/BackToHomeButton";
 
+import ControlXboxSeriesX from "../../assets/images/AC001.webp";
+import AuricularesHyperX from "../../assets/images/AC002.png";
+
 const productos = [
   {
     id: "AC001",
     nombre: "Controlador Inalambrico Xbox Series X",
     precio: 59990,
     descripcion:
-    "",
-    img: "",
+    "Ofrece una experiencia de juego cómoda con botones mapeables y una respuesta táctil mejorada. Compatible con consolas Xbox y PC.",
+    img: ControlXboxSeriesX
   },
   {
-    id: "",
+    id: "AC002",
     nombre: "Auriculares Gamer HyperX Cloud II",
     precio: 79990,
     descripcion:
-    "",
-    img: "",
+    "Proporcionan un sonido envolvente de calidad con un micrófono desmontable y almohadillas de espuma viscoelástica para mayor comodidad durante largas sesiones de juego.",
+    img: AuricularesHyperX
   }
 
 ];
 
-export default function Consolas() {
+export default function Accesorios() {
   const [esDuoc, setEsDuoc] = useState(false);
 
   useEffect(() => {
@@ -60,7 +63,7 @@ export default function Consolas() {
     <>
       <Navbar />
       <main className="products-section">
-        <h2>Consolas</h2>
+        <h2>Accesorios</h2>
         <div className="products-container">
           {productos.map((p) => (
             <div className="product-card" key={p.id}>

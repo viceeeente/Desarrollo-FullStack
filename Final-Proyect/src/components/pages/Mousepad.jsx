@@ -4,26 +4,29 @@ import Navbar from "../organisms/Navbar";
 import Footer from "../organisms/Footer";
 import BackToHomeButton from "../atoms/BackToHomeButton";
 
+import MousepadRazer from "../../assets/images/MP001.png";
+import MousepadCorsair from "../../assets/images/MP002.avif";
+
 const productos = [
   {
-    id: "",
-    nombre: "",
-    precio: 0,
+    id: "MP001",
+    nombre: "Mousepad Gamer Razer Goliathus Extended Chroma",
+    precio: 29990,
     descripcion:
-    "",
-    img: "",
+    "Mousepad Razer Goliathus Extended Chroma con iluminación RGB y superficie optimizada para precisión y velocidad",
+    img: MousepadRazer,
   },
   {
-    id: "",
-    nombre: "",
-    precio: 0,
+    id: "MP002",
+    nombre: "Mousepad Gamer Corsair MM300",
+    precio: 19990,
     descripcion:
-    "",
-    img: "",
+    "La alfombrilla MM300 proporciona una superficie de tela resistente y suave con los bordes cosidos reforzados para evitar el desgaste.",
+    img: MousepadCorsair,
   }
 
 ];
-export default function Consolas() {
+export default function Mousepad() {
   const [esDuoc, setEsDuoc] = useState(false);
 
   useEffect(() => {
@@ -59,7 +62,7 @@ export default function Consolas() {
     <>
       <Navbar />
       <main className="products-section">
-        <h2>Consolas</h2>
+        <h2>Mousepad</h2>
         <div className="products-container">
           {productos.map((p) => (
             <div className="product-card" key={p.id}>
