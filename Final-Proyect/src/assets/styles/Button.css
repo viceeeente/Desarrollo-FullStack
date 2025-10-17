@@ -37,7 +37,9 @@
   cursor: pointer;
 }
 
-.cart-icon {
-  width: 24px;
-  height: 24px;
+#main-menu img.cart-icon {
+  height: 50px;
+  width: auto;
 }
+
+

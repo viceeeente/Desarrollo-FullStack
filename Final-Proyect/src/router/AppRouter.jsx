@@ -8,6 +8,8 @@ import Mouse from "../components/pages/Mouse";
 import Mousepad from "../components/pages/Mousepad";
 import Silla from "../components/pages/Silla";
 import Poleras from "../components/pages/Poleras";
+import Login from "../components/pages/Login";
+import Register from "../components/pages/Register";
 
 export default function AppRouter() {
   return (
@@ -22,6 +24,8 @@ export default function AppRouter() {
         <Route path="/mousepad" element={<Mousepad />} />
         <Route path="/sillas-gamers" element={<Silla />} />
         <Route path="/poleras" element={<Poleras />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </Router>
   );

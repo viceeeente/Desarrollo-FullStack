@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import "../../assets/styles/Map.css";
 
 export default function MapSection() {
   useEffect(() => {

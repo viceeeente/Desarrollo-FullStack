@@ -1,0 +1,37 @@
+.dropdown {
+  position: relative;
+  margin-left: 1rem;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background-color: #111;
+  min-width: 180px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px #000;
+  list-style: none;
+  padding: 0.5rem 0;
+  z-index: 10;
+}
+
+.dropdown-menu li {
+  padding: 0.7rem 1rem;
+}
+
+.dropdown-menu li:hover {
+  background-color: #1E90FF;
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.dropdown-menu li:hover a {
+  color: #000;
+  font-weight: bold;
+}

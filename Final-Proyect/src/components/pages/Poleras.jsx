@@ -27,7 +27,7 @@ const productos = [
 
 ];
 
-export default function Consolas() {
+export default function Poleras() {
   const [esDuoc, setEsDuoc] = useState(false);
 
   useEffect(() => {

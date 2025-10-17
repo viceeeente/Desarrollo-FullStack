@@ -7,14 +7,14 @@ import Footer from "../organisms/Footer";
 
 export default function Index() {
   return (
-    <>
+    <div className="page-container">
       <Navbar />
-      <main>
+      <main className="main-content">
         <Welcome />
         <Shortcuts />
         <MapSection />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

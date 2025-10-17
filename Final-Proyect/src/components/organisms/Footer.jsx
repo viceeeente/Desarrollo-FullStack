@@ -1,4 +1,5 @@
 import React from "react";
+import "../../assets/styles/Footer.css";
 import FacebookLogo from "../../assets/icons/FacebookLogo.png";
 import InstagramLogo from "../../assets/icons/IgLogo.png";
 import WhatsappLogo from "../../assets/icons/wspLogo.png";

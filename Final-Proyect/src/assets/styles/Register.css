@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+html, body {
+  height: 100%;
+  background-color: #000;
+  color: #fff;
+}
+
+/* Navbar */
+#main-menu {
+  display: flex;
+  justify-content: center;
+  height: 70px;
+  width: 100%;
+  background-color: #000; 
+  padding: 0 2rem;
+  color: white;
+  align-items: center;
+}
+
+#main-menu img {
+  height: 60px;
+  width: auto;
+}
+
+#main-menu .info p {
+  font-size: 0.9rem;
+  color: #ccc;
+  text-align: right;
+}
+
+#body-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 5rem;
+  background: linear-gradient(135deg, #000, #111);
+  min-height: calc(100vh - 70px);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Formulario */
+.register-form {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.7rem;
+  background-color: #111;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #39FF14;
+  width: 100%;
+  max-width: 450px;
+}
+
+.register-form h2 {
+  margin-bottom: 1rem;
+  color: #39FF14;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.8rem;
+  text-align: center;
+  text-shadow: 0 0 8px #39FF14;
+}
+
+.input-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-row label {
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.input-row input {
+  width: 100%;
+  height: 2.5rem;
+  outline: none;
+  background-color: #222;
+  padding: 0 0.8rem;
+  border: 2px solid #1E90FF;
+  border-radius: 12px;
+  color: white;
+  transition: 0.3s;
+}
+
+.input-row input:focus {
+  border-color: #39FF14;
+  box-shadow: 0 0 10px #39FF14;
+}
+
+.input-row input::placeholder {
+  color: #bbb;
+  font-weight: 400;
+}
+
+.input-row input.error {
+  border: 2px solid #e63946;
+  background-color: rgba(230, 57, 70, 0.15);
+}
+
+.error-text {
+  color: #e63946;
+  font-size: 0.85rem;
+  margin-top: 0.2rem;
+  font-weight: 600;
+}
+
+.button-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.button-row button {
+  flex: 1;
+  background-color: #1E90FF;
+  color: #fff;
+  padding: 0.8rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.button-row button:hover {
+  background-color: #39FF14;
+  color: #000;
+  box-shadow: 0 0 12px #39FF14;
+}

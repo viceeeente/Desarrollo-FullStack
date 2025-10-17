@@ -1,0 +1,31 @@
+.map-section {
+  background-color: #111;
+  padding: 2rem;
+}
+
+.map-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #222;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.map-container p {
+  font-size: 45px;
+  color: white;
+  width: 40%;
+  padding-right: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+#map {
+  width: 60%;
+  height: 300px;
+  border-radius: 8px;
+}
