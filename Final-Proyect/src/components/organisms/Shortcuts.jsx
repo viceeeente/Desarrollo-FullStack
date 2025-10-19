@@ -11,14 +11,6 @@ import Polera from "../../assets/icons/PoleraLogo.webp";
 
 export default function Shortcuts() {
   const shortcuts = [
-    { title: "Consolas", img: Consolas, link: "/consolas" },
-    { title: "PC Gamer", img: PC, link: "/pc" },
-    { title: "Juegos", img: Juegos, link: "/juegos" },
-    { title: "Accesorios", img: Accesorios, link: "/accesorios" },
-    { title: "Mouse", img: Mouse, link: "/mouse" },
-    { title: "Mousepad", img: Mousepad, link: "/mousepad" },
-    { title: "Sillas Gamers", img: SillaGamer, link: "/sillas-gamers" },
-    { title: "Poleras Personalizadas", img: Polera, link: "/poleras" },
     { title: "Consolas", img: "https://cdn-icons-png.flaticon.com/512/141/141309.png", link: "/consolas" },
     { title: "PC Gamer", img: "https://cdn-icons-png.freepik.com/512/8674/8674466.png", link: "/pc" },
     { title: "Juegos", img: "https://cdn-icons-png.flaticon.com/512/686/686589.png", link: "/games" },

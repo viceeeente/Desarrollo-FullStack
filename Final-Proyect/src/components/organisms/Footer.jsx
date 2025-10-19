@@ -23,7 +23,7 @@ export default function Footer() {
           </a>
           <a href="https://wa.me/56912345678" target="_blank" rel="noreferrer">
             <img src={WhatsappLogo} alt="WhatsApp" />
-          </a>
+          </a>  
         </div>
       </div>
     </footer>
