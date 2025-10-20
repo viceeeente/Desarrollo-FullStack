@@ -92,7 +92,6 @@ export default function Pc() {
         </div>
         <BackToHomeButton />
       </main>
-
       <Footer />
     </>
   );

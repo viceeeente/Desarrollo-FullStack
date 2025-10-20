@@ -10,6 +10,7 @@ import Silla from "../components/pages/Silla";
 import Poleras from "../components/pages/Poleras";
 import Login from "../components/pages/Login";
 import Register from "../components/pages/Register";
+import Games from "../components/pages/Games";
 
 export default function AppRouter() {
   return (
@@ -26,6 +27,7 @@ export default function AppRouter() {
         <Route path="/poleras" element={<Poleras />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/games" element={<Games />} />
       </Routes>
     </Router>
   );
