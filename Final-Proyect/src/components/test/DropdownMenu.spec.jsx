@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import DropdownMenu from "../molecules/DropdownMenu"; // ajusta la ruta según tu estructura
+import DropdownMenu from "../molecules/DropdownMenu"; 
 
 describe("DropdownMenu", () => {
   it("muestra solo el botón al inicio (menú cerrado)", () => {

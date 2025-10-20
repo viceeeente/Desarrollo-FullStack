@@ -4,8 +4,8 @@ module.exports = {
     "^.+\\.jsx?$": "babel-jest"
   },
   moduleFileExtensions: ["js", "jsx"],
-  setupFiles: ["<rootDir>/jest.setup.js"], // solo polyfill
-  setupFilesAfterEnv: ["@testing-library/jest-dom"], // extiende `expect`
+  setupFiles: ["<rootDir>/jest.setup.js"], 
+  setupFilesAfterEnv: ["@testing-library/jest-dom"], 
   moduleNameMapper: {
     "\\.(css|scss|sass|less)$": "identity-obj-proxy",
     "\\.(jpg|jpeg|png|gif|svg)$": "<rootDir>/__mocks__/fileMock.js"

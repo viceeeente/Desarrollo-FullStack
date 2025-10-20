@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import ProductCard from "../molecules/ProductCard"; // ajusta la ruta según tu estructura
+import ProductCard from "../molecules/ProductCard"; 
 
 describe("ProductCard", () => {
   const productoMock = {
@@ -21,8 +21,8 @@ describe("ProductCard", () => {
 
   it("muestra precio con descuento si esDuoc es true", () => {
     render(<ProductCard producto={productoMock} esDuoc={true} />);
-    expect(screen.getAllByText("$25.000")).toHaveLength(2); // tachado
-    expect(screen.getAllByText("$20.000 CLP")).toHaveLength(2); // con descuento
+    expect(screen.getAllByText("$25.000")).toHaveLength(2); 
+    expect(screen.getAllByText("$20.000 CLP")).toHaveLength(2); 
     expect(screen.getAllByText("(20% DCTO DUOC)")).toHaveLength(2);
   });
 

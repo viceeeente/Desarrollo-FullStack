@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import AuthButton from "../molecules/AuthButton"; // Ajusta la ruta según tu estructura
+import AuthButton from "../molecules/AuthButton";
 
 describe("AuthButton", () => {
   it("muestra el botón 'Cerrar sesión' si el usuario está logueado", () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import Input from "../atoms/Input"; // ajusta la ruta si tu test está en otra carpeta
+import Input from "../atoms/Input"; 
 
 describe("Input", () => {
   it("renderiza con los atributos correctos", () => {
