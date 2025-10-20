@@ -3,6 +3,7 @@ import "../../assets/styles/productos.css";
 import Navbar from "../organisms/Navbar";
 import Footer from "../organisms/Footer";
 import BackToHomeButton from "../atoms/BackToHomeButton";
+import agregarAlCarrito from "../../utils/agregarAlCarrito";
 
 import PlayStation5 from "../../assets/images/CO001.png";
 import XboxSeriesX from "../../assets/images/CO002.png";
@@ -11,6 +12,7 @@ const productos = [
   {
     id: "CO001",
     nombre: "PlayStation 5",
+    categoria: "Consola",
     precio: 499990,
     descripcion:
       "Consola de última generación de Sony, con gráficos impresionantes y tiempos de carga ultrarrápidos.",
@@ -19,11 +21,12 @@ const productos = [
   {
     id: "CO002",
     nombre: "Xbox Series X",
+    categoria: "Consola",
     precio: 449990,
-    descripcion: "La consola más potente de Microsoft con soporte para 4K, Game Pass y cientos de títulos disponibles.",
+    descripcion:
+      "La consola más potente de Microsoft con soporte para 4K, Game Pass y cientos de títulos disponibles.",
     img: XboxSeriesX,
   },
-
 ];
 
 export default function Consolas() {
@@ -54,8 +57,8 @@ export default function Consolas() {
     return <strong>${precio.toLocaleString("es-CL")} CLP</strong>;
   };
 
-  const handleAddToCart = (id) => {
-    alert(`Producto agregado: ${id}`);
+  const handleAddToCart = (producto) => {
+    agregarAlCarrito(producto);
   };
 
   return (
@@ -78,7 +81,7 @@ export default function Consolas() {
                   <div>{formatearPrecio(p.precio)}</div>
                   <button
                     className="add-to-cart"
-                    onClick={() => handleAddToCart(p.id)}
+                    onClick={() => handleAddToCart(p)}
                   >
                     Agregar al carrito
                   </button>

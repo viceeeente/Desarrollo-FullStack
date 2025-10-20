@@ -3,6 +3,7 @@ import "../../assets/styles/productos.css";
 import Navbar from "../organisms/Navbar";
 import Footer from "../organisms/Footer";
 import BackToHomeButton from "../atoms/BackToHomeButton";
+import agregarAlCarrito from "../../utils/agregarAlCarrito";
 
 import MousepadRazer from "../../assets/images/MP001.png";
 import MousepadCorsair from "../../assets/images/MP002.avif";
@@ -11,6 +12,7 @@ const productos = [
   {
     id: "MP001",
     nombre: "Mousepad Gamer Razer Goliathus Extended Chroma",
+    categoria: "Mousepad",
     precio: 29990,
     descripcion:
     "Mousepad Razer Goliathus Extended Chroma con iluminación RGB y superficie optimizada para precisión y velocidad",
@@ -19,6 +21,7 @@ const productos = [
   {
     id: "MP002",
     nombre: "Mousepad Gamer Corsair MM300",
+    categoria: "Mousepad",
     precio: 19990,
     descripcion:
     "La alfombrilla MM300 proporciona una superficie de tela resistente y suave con los bordes cosidos reforzados para evitar el desgaste.",
@@ -54,8 +57,8 @@ export default function Mousepad() {
     return <strong>${precio.toLocaleString("es-CL")} CLP</strong>;
   };
 
-  const handleAddToCart = (id) => {
-    alert(`Producto agregado: ${id}`);
+  const handleAddToCart = (producto) => {
+    agregarAlCarrito(producto);
   };
 
   return (
@@ -78,7 +81,7 @@ export default function Mousepad() {
                   <div>{formatearPrecio(p.precio)}</div>
                   <button
                     className="add-to-cart"
-                    onClick={() => handleAddToCart(p.id)}
+                    onClick={() => handleAddToCart(p)}
                   >
                     Agregar al carrito
                   </button>

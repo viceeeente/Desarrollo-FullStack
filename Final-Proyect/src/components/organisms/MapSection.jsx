@@ -19,6 +19,7 @@ export default function MapSection() {
 
   const ubicaciones = [
   { nombre: "Sucursal Chorombo", coords: [-33.544063, -71.224145] },
+  { nombre: "Sucursal Chiñigue", coords: [-33.690278, -71.079500] },
 ];
 
 

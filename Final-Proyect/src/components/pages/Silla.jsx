@@ -3,6 +3,7 @@ import "../../assets/styles/productos.css";
 import Navbar from "../organisms/Navbar";
 import Footer from "../organisms/Footer";
 import BackToHomeButton from "../atoms/BackToHomeButton";
+import  agregarAlCarrito from "../../utils/agregarAlCarrito";
 
 import SillaSecretLab from "../../assets/images/SG001.webp";
 import SillaDXRacer from "../../assets/images/SG002.png";
@@ -11,6 +12,7 @@ const productos = [
   {
     id: "SG001",
     nombre: "Silla Gamer Secretlab TITAN",
+    categoria: "Silla Gamer",
     precio: 349990,
     descripcion:
     "La Silla Gamer SecretLab Titan ofrece máxima comodidad y ergonomía, con soporte lumbar ajustable, reposabrazos 4D y respaldo reclinable.",
@@ -19,6 +21,7 @@ const productos = [
   {
     id: "SG002",
     nombre: "Silla Gamer DXRacer Formula Series",
+    categoria: "Silla Gamer",
     precio: 399990,
     descripcion:
     "",
@@ -55,8 +58,8 @@ export default function Sillas() {
     return <strong>${precio.toLocaleString("es-CL")} CLP</strong>;
   };
 
-  const handleAddToCart = (id) => {
-    alert(`Producto agregado: ${id}`);
+  const handleAddToCart = (producto) => {
+    agregarAlCarrito(producto);
   };
 
   return (
@@ -79,7 +82,7 @@ export default function Sillas() {
                   <div>{formatearPrecio(p.precio)}</div>
                   <button
                     className="add-to-cart"
-                    onClick={() => handleAddToCart(p.id)}
+                    onClick={() => handleAddToCart(p)}
                   >
                     Agregar al carrito
                   </button>

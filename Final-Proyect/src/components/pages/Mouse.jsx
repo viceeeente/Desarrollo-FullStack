@@ -3,6 +3,7 @@ import "../../assets/styles/productos.css";
 import Navbar from "../organisms/Navbar";
 import Footer from "../organisms/Footer";
 import BackToHomeButton from "../atoms/BackToHomeButton";
+import agregarAlCarrito from "../../utils/agregarAlCarrito";
 
 import MouseLogitech from "../../assets/images/MS001.webp";
 import MouseRazer from "../../assets/images/MS002.webp";
@@ -11,6 +12,7 @@ const productos = [
   {
     id: "MS001",
     nombre: "Mouse Gamer Logitech G502 HERO",
+    categoria: "Mouse",
     precio: 49990,
     descripcion:
     "Mouse Logitech G502 HERO con sensor HERO 25K, 11 botones programables y pesos ajustables",
@@ -19,6 +21,7 @@ const productos = [
   {
     id: "MS002",
     nombre: "Mouse Gamer Razer DeathAdder V2",
+    categoria: "Mouse",
     precio: 29990,
     descripcion:
     "Mouse Razer Deathadder V2 con sensor óptico de 8.500 dpi y diseño ergonómico Dimensiones y peso reducido para un mouse con un rendimiento excepcional y una ergonomía sin igual.",
@@ -55,8 +58,8 @@ export default function Mouse() {
     return <strong>${precio.toLocaleString("es-CL")} CLP</strong>;
   };
 
-  const handleAddToCart = (id) => {
-    alert(`Producto agregado: ${id}`);
+  const handleAddToCart = (producto) => {
+    agregarAlCarrito(producto);
   };
 
   return (
@@ -79,7 +82,7 @@ export default function Mouse() {
                   <div>{formatearPrecio(p.precio)}</div>
                   <button
                     className="add-to-cart"
-                    onClick={() => handleAddToCart(p.id)}
+                    onClick={() => handleAddToCart(p)}
                   >
                     Agregar al carrito
                   </button>

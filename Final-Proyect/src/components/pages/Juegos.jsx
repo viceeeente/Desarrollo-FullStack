@@ -3,6 +3,7 @@ import "../../assets/styles/productos.css";
 import Navbar from "../organisms/Navbar";
 import Footer from "../organisms/Footer";
 import BackToHomeButton from "../atoms/BackToHomeButton";
+import agregarAlCarrito from "../../utils/agregarAlCarrito";
 
 import Catan from "../../assets/images/JM001.png";
 import Carcassonne from "../../assets/images/JM002.webp";
@@ -11,14 +12,16 @@ const productos = [
   {
     id: "JM001",
     nombre: "Catan",
+    categoria: "Juegos de Mesa",
     precio: 29900,
     descripcion:
-      ".",
+    ".",
     img: Catan,
   },
   {
     id: "JM002",
     nombre: "Carcassonne",
+    categoria: "Juegos de Mesa  ",
     precio: 24990,
     descripcion:
       "",
@@ -54,8 +57,8 @@ export default function Consolas() {
     return <strong>${precio.toLocaleString("es-CL")} CLP</strong>;
   };
 
-  const handleAddToCart = (id) => {
-    alert(`Producto agregado: ${id}`);
+  const handleAddToCart = (producto) => {
+    agregarAlCarrito(producto);
   };
 
   return (
@@ -78,7 +81,7 @@ export default function Consolas() {
                   <div>{formatearPrecio(p.precio)}</div>
                   <button
                     className="add-to-cart"
-                    onClick={() => handleAddToCart(p.id)}
+                    onClick={() => handleAddToCart(p)}
                   >
                     Agregar al carrito
                   </button>

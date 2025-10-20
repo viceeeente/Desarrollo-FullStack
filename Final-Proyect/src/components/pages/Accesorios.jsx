@@ -3,6 +3,7 @@ import "../../assets/styles/productos.css";
 import Navbar from "../organisms/Navbar";
 import Footer from "../organisms/Footer";
 import BackToHomeButton from "../atoms/BackToHomeButton";
+import agregarAlCarrito from "../../utils/agregarAlCarrito";
 
 import ControlXboxSeriesX from "../../assets/images/AC001.webp";
 import AuricularesHyperX from "../../assets/images/AC002.png";
@@ -11,6 +12,7 @@ const productos = [
   {
     id: "AC001",
     nombre: "Controlador Inalambrico Xbox Series X",
+    categoria: "Accesorios",
     precio: 59990,
     descripcion:
     "Ofrece una experiencia de juego cómoda con botones mapeables y una respuesta táctil mejorada. Compatible con consolas Xbox y PC.",
@@ -19,6 +21,7 @@ const productos = [
   {
     id: "AC002",
     nombre: "Auriculares Gamer HyperX Cloud II",
+    categoria: "Accesorios",
     precio: 79990,
     descripcion:
     "Proporcionan un sonido envolvente de calidad con un micrófono desmontable y almohadillas de espuma viscoelástica para mayor comodidad durante largas sesiones de juego.",
@@ -55,8 +58,8 @@ export default function Accesorios() {
     return <strong>${precio.toLocaleString("es-CL")} CLP</strong>;
   };
 
-  const handleAddToCart = (id) => {
-    alert(`Producto agregado: ${id}`);
+  const handleAddToCart = (producto) => {
+    agregarAlCarrito(producto);
   };
 
   return (
@@ -79,7 +82,7 @@ export default function Accesorios() {
                   <div>{formatearPrecio(p.precio)}</div>
                   <button
                     className="add-to-cart"
-                    onClick={() => handleAddToCart(p.id)}
+                    onClick={() => handleAddToCart(p)}
                   >
                     Agregar al carrito
                   </button>

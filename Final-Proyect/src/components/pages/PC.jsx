@@ -3,7 +3,7 @@ import "../../assets/styles/productos.css";
 import Navbar from "../organisms/Navbar";
 import Footer from "../organisms/Footer";
 import BackToHomeButton from "../atoms/BackToHomeButton";
-
+import agregarAlCarrito from "../../utils/agregarAlCarrito"; 
 
 import PCRyzen from "../../assets/images/PC001.webp";
 import PC from "../../assets/images/PC002.jpg";
@@ -12,6 +12,7 @@ const productos = [
   {
     id: "PC001",
     nombre: "PC Gamer Ryzen 7 RTX 4060",
+    categoria: "PC",
     precio: 899990,
     descripcion:
       "Potente equipo con procesador Ryzen 7 y tarjeta gráfica RTX 4060. Ideal para gaming en 2K y multitareas exigentes.",
@@ -20,6 +21,7 @@ const productos = [
   {
     id: "PC002",
     nombre: "Notebook ASUS TUF Gaming",
+    categoria: "PC",
     precio: 749990,
     descripcion:
       "Notebook gamer con pantalla 144Hz, Ryzen 5 y GPU GTX 1650, diseñado para juegos competitivos y rendimiento.",
@@ -55,8 +57,8 @@ export default function Pc() {
     return <strong>${precio.toLocaleString("es-CL")} CLP</strong>;
   };
 
-  const handleAddToCart = (id) => {
-    alert(`Producto agregado al carrito: ${id}`);
+  const handleAddToCart = (producto) => {
+    agregarAlCarrito(producto); 
   };
 
   return (
@@ -81,7 +83,7 @@ export default function Pc() {
                   <div>{formatearPrecio(p.precio)}</div>
                   <button
                     className="add-to-cart"
-                    onClick={() => handleAddToCart(p.id)}
+                    onClick={() => handleAddToCart(p)}
                   >
                     Agregar
                   </button>

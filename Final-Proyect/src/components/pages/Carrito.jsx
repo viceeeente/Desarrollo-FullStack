@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import '../../assets/styles/Carrito.css'
+import "../../assets/styles/Carrito.css";
 
 export default function Carrito() {
   const [carrito, setCarrito] = useState([]);
@@ -15,14 +15,11 @@ export default function Carrito() {
   }, []);
 
   useEffect(() => {
-    const calcularTotal = () => {
-      const totalCalculado = carrito.reduce((acc, item) => {
-        const precioFinal = esDuoc ? Math.round(item.precio * 0.8) : item.precio;
-        return acc + precioFinal;
-      }, 0);
-      setTotal(totalCalculado);
-    };
-    calcularTotal();
+    const totalCalculado = carrito.reduce((acc, item) => {
+      const precioFinal = esDuoc ? Math.round(item.precio * 0.8) : item.precio;
+      return acc + precioFinal;
+    }, 0);
+    setTotal(totalCalculado);
   }, [carrito, esDuoc]);
 
   const vaciarCarrito = () => {
@@ -33,18 +30,35 @@ export default function Carrito() {
 
   const volver = () => {
     const paginaAnterior = localStorage.getItem("paginaAnterior");
+
     if (paginaAnterior) {
       window.location.href = paginaAnterior;
-    } else {
-      window.close();
+      return;
     }
+
+    if (window.opener) {
+      window.close();
+      return;
+    }
+
+    if (window.history && window.history.length > 1) {
+      window.history.back();
+      return;
+    }
+
+    if (document.referrer) {
+      window.location.href = document.referrer;
+      return;
+    }
+
+    window.location.href = "/";
   };
 
   return (
     <div className="carrito-page">
       <h2>Tu Carrito</h2>
 
-      <div id="carrito-container">
+      <div className="carrito-container">
         <div className="carrito-header">
           <span className="col codigo">Código</span>
           <span className="col categoria">Categoría</span>
@@ -52,34 +66,48 @@ export default function Carrito() {
           <span className="col precio">Precio</span>
         </div>
 
-        {carrito.map((item) => {
-          const precioFinal = esDuoc ? Math.round(item.precio * 0.8) : item.precio;
-          return (
-            <div key={item.id} className="producto-carrito">
-              <span className="col codigo">{item.id}</span>
-              <span className="col categoria">{item.categoria}</span>
-              <span className="col producto">{item.nombre}</span>
-              <span className="col precio">
-                ${precioFinal.toLocaleString()}{" "}
-                {esDuoc && (
-                  <>
-                    <s>${item.precio.toLocaleString()}</s>{" "}
-                    <small>(20% desc)</small>
-                  </>
-                )}
-              </span>
-            </div>
-          );
-        })}
+        {carrito.length === 0 ? (
+          <p style={{ textAlign: "center", color: "#1E90FF", marginTop: "1rem" }}>
+            Tu carrito está vacío
+          </p>
+        ) : (
+          carrito.map((item) => {
+            const precioFinal = esDuoc ? Math.round(item.precio * 0.8) : item.precio;
+            return (
+              <div key={item.id} className="producto-carrito">
+                <span className="col codigo">{item.id}</span>
+                <span className="col categoria">{item.categoria}</span>
+                <span className="col producto">{item.nombre}</span>
+                <span className="col precio">
+                  ${precioFinal.toLocaleString()}{" "}
+                  {esDuoc && (
+                    <>
+                      <s>${item.precio.toLocaleString()}</s>{" "}
+                      <small>(20% desc)</small>
+                    </>
+                  )}
+                </span>
+              </div>
+            );
+          })
+        )}
       </div>
 
-      <div id="total-compra">
+      <div className="total-compra">
         Total: ${total.toLocaleString()} CLP {esDuoc && "(con descuento Duoc)"}
       </div>
 
       <div className="carrito-botones">
-        <button onClick={vaciarCarrito}>Vaciar carrito</button>
-        <button onClick={volver}>Volver</button>
+        <button
+          className="vaciar-carrito"
+          onClick={vaciarCarrito}
+          disabled={carrito.length === 0}
+        >
+          Vaciar carrito
+        </button>
+        <button className="volver-btn" onClick={volver}>
+          Volver
+        </button>
       </div>
     </div>
   );
