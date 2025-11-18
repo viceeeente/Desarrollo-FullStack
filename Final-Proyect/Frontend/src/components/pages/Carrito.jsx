@@ -10,6 +10,7 @@ export default function Carrito() {
     const storedCarrito = JSON.parse(localStorage.getItem("carrito")) || [];
     const userData = JSON.parse(localStorage.getItem("userData"));
     const esDuocUser = userData?.email?.toLowerCase().endsWith("@duocuc.cl");
+
     setCarrito(storedCarrito);
     setEsDuoc(esDuocUser || false);
   }, []);
@@ -19,6 +20,7 @@ export default function Carrito() {
       const precioFinal = esDuoc ? Math.round(item.precio * 0.8) : item.precio;
       return acc + precioFinal;
     }, 0);
+
     setTotal(totalCalculado);
   }, [carrito, esDuoc]);
 
@@ -26,32 +28,6 @@ export default function Carrito() {
     localStorage.removeItem("carrito");
     setCarrito([]);
     setTotal(0);
-  };
-
-  const volver = () => {
-    const paginaAnterior = localStorage.getItem("paginaAnterior");
-
-    if (paginaAnterior) {
-      window.location.href = paginaAnterior;
-      return;
-    }
-
-    if (window.opener) {
-      window.close();
-      return;
-    }
-
-    if (window.history && window.history.length > 1) {
-      window.history.back();
-      return;
-    }
-
-    if (document.referrer) {
-      window.location.href = document.referrer;
-      return;
-    }
-
-    window.location.href = "/";
   };
 
   return (
@@ -73,15 +49,23 @@ export default function Carrito() {
         ) : (
           carrito.map((item) => {
             const precioFinal = esDuoc ? Math.round(item.precio * 0.8) : item.precio;
+
             return (
               <div key={item.id} className="producto-carrito">
                 <span className="col codigo">{item.id}</span>
-                <span className="col categoria">{item.categoria}</span>
+
+                {/* FIX PRINCIPAL */}
+                <span className="col categoria">
+                  {item.categoria?.nombre || "Sin categoría"}
+                </span>
+
                 <span className="col producto">{item.nombre}</span>
+
                 <span className="col precio">
-                  ${precioFinal.toLocaleString()}{" "}
+                  ${precioFinal.toLocaleString()}
                   {esDuoc && (
                     <>
+                      {" "}
                       <s>${item.precio.toLocaleString()}</s>{" "}
                       <small>(20% desc)</small>
                     </>
@@ -98,15 +82,8 @@ export default function Carrito() {
       </div>
 
       <div className="carrito-botones">
-        <button
-          className="vaciar-carrito"
-          onClick={vaciarCarrito}
-          disabled={carrito.length === 0}
-        >
+        <button className="vaciar-carrito" onClick={vaciarCarrito} disabled={carrito.length === 0}>
           Vaciar carrito
-        </button>
-        <button className="volver-btn" onClick={volver}>
-          Volver
         </button>
       </div>
     </div>
