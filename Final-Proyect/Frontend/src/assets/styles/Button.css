@@ -27,6 +27,21 @@
   background-color: #39FF14;
   color: #000;
 }
+.others-buttons {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+  background-color: #1E90FF;
+  color: #fff;
+  border-radius: 8px;
+
+}
+
+.others-buttons:hover {
+  background-color: #39FF14;
+  color: #000;
+}
 .card-back .add-to-cart {
   background: #1E90FF;
   color: #fff;

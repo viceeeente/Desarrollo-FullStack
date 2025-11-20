@@ -5,32 +5,25 @@ import Footer from "../organisms/Footer";
 import BackToHomeButton from "../atoms/BackToHomeButton";
 import agregarAlCarrito from "../../utils/agregarAlCarrito";
 
-import Catan from "../../assets/images/JM001.png";
-import Carcassonne from "../../assets/images/JM002.webp";
-
-const productos = [
-  {
-    id: "JM001",
-    nombre: "Catan",
-    categoria: "Juegos de Mesa",
-    precio: 29900,
-    descripcion:
-    ".",
-    img: Catan,
-  },
-  {
-    id: "JM002",
-    nombre: "Carcassonne",
-    categoria: "Juegos de Mesa  ",
-    precio: 24990,
-    descripcion:
-      "",
-    img: Carcassonne,
-  },
-];
-
-export default function Consolas() {
+export default function Juegos() {
+  const [productos, setProductos] = useState([]);
   const [esDuoc, setEsDuoc] = useState(false);
+
+    useEffect(() => {
+    document.title = "Juegos | Level Up Gamer";
+  }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:8080/api/productos")
+      .then((res) => res.json())
+      .then((data) => {
+        const filtrados = data.filter(
+          (p) => p.categoria?.nombre?.toLowerCase() === "juegos"
+        );
+        setProductos(filtrados);
+      })
+      .catch((err) => console.error("ERROR FETCH:", err));
+  }, []);
 
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem("userData"));
@@ -66,19 +59,26 @@ export default function Consolas() {
       <Navbar />
       <main className="products-section">
         <h2>Juegos</h2>
+
         <div className="products-container">
           {productos.map((p) => (
             <div className="product-card" key={p.id}>
               <div className="card-inner">
                 <div className="card-front">
-                  <img src={p.img} alt={p.nombre} />
+                  <img
+                    src={`/productos/${p.codigo}.png`}
+                    alt={p.nombre}
+                    onError={(e) => (e.target.src = "/productos/default.png")}
+                  />
                   <h3>{p.nombre}</h3>
                   <p>{formatearPrecio(p.precio)}</p>
                 </div>
+
                 <div className="card-back">
                   <h3>{p.nombre}</h3>
                   <p>{p.descripcion}</p>
                   <div>{formatearPrecio(p.precio)}</div>
+
                   <button
                     className="add-to-cart"
                     onClick={() => handleAddToCart(p)}
@@ -90,8 +90,10 @@ export default function Consolas() {
             </div>
           ))}
         </div>
+
         <BackToHomeButton />
       </main>
+
       <Footer />
     </>
   );

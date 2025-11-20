@@ -2,7 +2,6 @@ package com.example.LevelUpGamer.controller;
 
 import com.example.LevelUpGamer.model.Producto;
 import com.example.LevelUpGamer.service.ProductoService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -52,12 +51,17 @@ public class ProductoController {
         Producto existing = productoService.getProductoById(id);
 
         if (existing != null) {
+            boolean categoriaCambio = !existing.getCategoria().getId()
+                    .equals(producto.getCategoria().getId());
             existing.setNombre(producto.getNombre());
             existing.setDescripcion(producto.getDescripcion());
             existing.setPrecio(producto.getPrecio());
             existing.setStock(producto.getStock());
-            existing.setImagenUrl(producto.getImagenUrl());
             existing.setCategoria(producto.getCategoria());
+
+            if (categoriaCambio) {
+                existing.setCodigo(null);
+            }
 
             return productoService.saveProducto(existing);
         }

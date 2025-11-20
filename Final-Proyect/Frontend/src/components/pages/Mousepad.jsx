@@ -5,32 +5,24 @@ import Footer from "../organisms/Footer";
 import BackToHomeButton from "../atoms/BackToHomeButton";
 import agregarAlCarrito from "../../utils/agregarAlCarrito";
 
-import MousepadRazer from "../../assets/images/MP001.png";
-import MousepadCorsair from "../../assets/images/MP002.avif";
-
-const productos = [
-  {
-    id: "MP001",
-    nombre: "Mousepad Gamer Razer Goliathus Extended Chroma",
-    categoria: "Mousepad",
-    precio: 29990,
-    descripcion:
-    "Mousepad Razer Goliathus Extended Chroma con iluminación RGB y superficie optimizada para precisión y velocidad",
-    img: MousepadRazer,
-  },
-  {
-    id: "MP002",
-    nombre: "Mousepad Gamer Corsair MM300",
-    categoria: "Mousepad",
-    precio: 19990,
-    descripcion:
-    "La alfombrilla MM300 proporciona una superficie de tela resistente y suave con los bordes cosidos reforzados para evitar el desgaste.",
-    img: MousepadCorsair,
-  }
-
-];
 export default function Mousepad() {
+  const [productos, setProductos] = useState([]);
   const [esDuoc, setEsDuoc] = useState(false);
+
+    useEffect(() => {
+    document.title = "Mousepad | Level Up Gamer";
+  }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:8080/api/productos")
+      .then((res) => res.json())
+      .then((data) => {
+        const filtrados = data.filter(
+          (p) => p.categoria?.nombre?.toLowerCase() === "mousepad"
+        );
+        setProductos(filtrados);
+      });
+  }, []);
 
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem("userData"));
@@ -71,14 +63,20 @@ export default function Mousepad() {
             <div className="product-card" key={p.id}>
               <div className="card-inner">
                 <div className="card-front">
-                  <img src={p.img} alt={p.nombre} />
+                  <img
+                    src={`/productos/${p.codigo}.png`}
+                    alt={p.nombre}
+                    onError={(e) => (e.target.src = "/productos/default.png")}
+                  />
                   <h3>{p.nombre}</h3>
                   <p>{formatearPrecio(p.precio)}</p>
                 </div>
+
                 <div className="card-back">
                   <h3>{p.nombre}</h3>
                   <p>{p.descripcion}</p>
                   <div>{formatearPrecio(p.precio)}</div>
+
                   <button
                     className="add-to-cart"
                     onClick={() => handleAddToCart(p)}
@@ -90,6 +88,7 @@ export default function Mousepad() {
             </div>
           ))}
         </div>
+
         <BackToHomeButton />
       </main>
       <Footer />

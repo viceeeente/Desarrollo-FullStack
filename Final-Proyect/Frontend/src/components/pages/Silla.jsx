@@ -3,35 +3,27 @@ import "../../assets/styles/productos.css";
 import Navbar from "../organisms/Navbar";
 import Footer from "../organisms/Footer";
 import BackToHomeButton from "../atoms/BackToHomeButton";
-import  agregarAlCarrito from "../../utils/agregarAlCarrito";
-
-import SillaSecretLab from "../../assets/images/SG001.webp";
-import SillaDXRacer from "../../assets/images/SG002.png";
-
-const productos = [
-  {
-    id: "SG001",
-    nombre: "Silla Gamer Secretlab TITAN",
-    categoria: "Silla Gamer",
-    precio: 349990,
-    descripcion:
-    "La Silla Gamer SecretLab Titan ofrece máxima comodidad y ergonomía, con soporte lumbar ajustable, reposabrazos 4D y respaldo reclinable.",
-    img: SillaSecretLab,
-  },
-  {
-    id: "SG002",
-    nombre: "Silla Gamer DXRacer Formula Series",
-    categoria: "Silla Gamer",
-    precio: 399990,
-    descripcion:
-    "",
-    img: SillaDXRacer,
-  }
-
-];  
+import agregarAlCarrito from "../../utils/agregarAlCarrito";
 
 export default function Sillas() {
+  const [productos, setProductos] = useState([]);
   const [esDuoc, setEsDuoc] = useState(false);
+
+  useEffect(() => {
+    document.title = "Sillas Gamers | Level Up Gamer";
+  }, []);
+
+
+  useEffect(() => {
+    fetch("http://localhost:8080/api/productos")
+      .then((res) => res.json())
+      .then((data) => {
+        const filtrados = data.filter(
+          (p) => p.categoria?.nombre?.toLowerCase() === "sillas gamers"
+        );
+        setProductos(filtrados);
+      });
+  }, []);
 
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem("userData"));
@@ -72,14 +64,20 @@ export default function Sillas() {
             <div className="product-card" key={p.id}>
               <div className="card-inner">
                 <div className="card-front">
-                  <img src={p.img} alt={p.nombre} />
+                  <img
+                    src={`/productos/${p.codigo}.png`}
+                    alt={p.nombre}
+                    onError={(e) => (e.target.src = "/productos/default.png")}
+                  />
                   <h3>{p.nombre}</h3>
                   <p>{formatearPrecio(p.precio)}</p>
                 </div>
+
                 <div className="card-back">
                   <h3>{p.nombre}</h3>
                   <p>{p.descripcion}</p>
                   <div>{formatearPrecio(p.precio)}</div>
+
                   <button
                     className="add-to-cart"
                     onClick={() => handleAddToCart(p)}
@@ -91,6 +89,7 @@ export default function Sillas() {
             </div>
           ))}
         </div>
+
         <BackToHomeButton />
       </main>
       <Footer />

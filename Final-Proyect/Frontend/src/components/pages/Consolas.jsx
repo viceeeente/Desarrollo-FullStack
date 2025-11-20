@@ -5,18 +5,13 @@ import Footer from "../organisms/Footer";
 import BackToHomeButton from "../atoms/BackToHomeButton";
 import agregarAlCarrito from "../../utils/agregarAlCarrito";
 
-import img1 from "../../assets/images/producto_1.png";
-import img2 from "../../assets/images/producto_2.png";
-
-
 export default function Consolas() {
   const [productos, setProductos] = useState([]);
   const [esDuoc, setEsDuoc] = useState(false);
 
-  const imagenesPorId = {
-    1: img1,
-    2: img2,
-  };
+    useEffect(() => {
+    document.title = "Consolas | Level Up Gamer";
+  }, []);
 
   useEffect(() => {
     fetch("http://localhost:8080/api/productos")
@@ -67,13 +62,17 @@ export default function Consolas() {
             <p>Cargando productos...</p>
           ) : (
             productos.map((p) => (
-              <div className="product-card" key={p.id}>
+              <div className="product-card" key={p.codigo}>
                 <div className="card-inner">
                   <div className="card-front">
                     <img
-                      src={imagenesPorId[p.id] || imgDefault}
+                      src={`/productos/${p.codigo}.png`}
                       alt={p.nombre}
+                      onError={(e) => {
+                        e.target.src = "/productos/default.png";
+                      }}
                     />
+
                     <h3>{p.nombre}</h3>
                     <p>{formatearPrecio(p.precio)}</p>
                   </div>

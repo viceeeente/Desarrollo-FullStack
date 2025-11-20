@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../assets/styles/Carrito.css";
+import ClearCartButton from "../atoms/ClearCartButton";
+import CloseTabButton from "../atoms/CloseTabButton";
 
 export default function Carrito() {
+  const navigate = useNavigate();
   const [carrito, setCarrito] = useState([]);
   const [esDuoc, setEsDuoc] = useState(false);
   const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    document.title = "Carrito | Level Up Gamer";
+  }, []);
 
   useEffect(() => {
     const storedCarrito = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -52,9 +60,8 @@ export default function Carrito() {
 
             return (
               <div key={item.id} className="producto-carrito">
-                <span className="col codigo">{item.id}</span>
+                <span className="col codigo">{item.codigo}</span>
 
-                {/* FIX PRINCIPAL */}
                 <span className="col categoria">
                   {item.categoria?.nombre || "Sin categoría"}
                 </span>
@@ -82,9 +89,8 @@ export default function Carrito() {
       </div>
 
       <div className="carrito-botones">
-        <button className="vaciar-carrito" onClick={vaciarCarrito} disabled={carrito.length === 0}>
-          Vaciar carrito
-        </button>
+        <ClearCartButton onClear={vaciarCarrito} />
+        <CloseTabButton />
       </div>
     </div>
   );
