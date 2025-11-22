@@ -4,29 +4,42 @@ import Button from "../atoms/Button";
 import ErrorMessage from "../molecules/ErrorMessage";
 
 export default function LoginForm() {
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState({ user: "", password: "" });
   const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
 
-    const storedUserData = JSON.parse(localStorage.getItem("userData"));
+    try {
+      const res = await fetch("http://localhost:8080/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: formData.user,
+          password: formData.password,
+        }),
+      });
 
-    if (!storedUserData) {
-      setError("No hay usuarios registrados");
-      return;
-    }
+      if (!res.ok) {
+        setError("Usuario o contraseña incorrectos");
+        return;
+      }
 
-    if (
-      userName.trim() === storedUserData.username &&
-      password.trim() === storedUserData.password
-    ) {
+      const data = await res.json();
+
       localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem("userName", storedUserData.username);
+      localStorage.setItem("userName", data.username);
+      localStorage.setItem("token", data.token);
+
       window.location.href = "/";
-    } else {
-      setError("Usuario o contraseña incorrectos");
+    } catch (err) {
+      console.error(err);
+      setError("Error de conexión con el servidor");
     }
   };
 
@@ -34,33 +47,27 @@ export default function LoginForm() {
     <form onSubmit={handleSubmit} className="login-form">
       <h2>Inicia Sesión</h2>
 
-      <div className="login-row">
-        <FormRow
-          label="Usuario"
-          inputProps={{
-            id: "user",
-            type: "text",
-            name: "user",
-            value: userName,
-            onChange: (e) => setUserName(e.target.value),
-            required: true,
-          }}
-        />
-      </div>
+      <FormRow
+        label="Usuario"
+        inputProps={{
+          name: "user",
+          type: "text",
+          value: formData.user,
+          onChange: handleChange,
+          required: true,
+        }}
+      />
 
-      <div className="login-row">
-        <FormRow
-          label="Contraseña"
-          inputProps={{
-            id: "password",
-            type: "password",
-            name: "password",
-            value: password,
-            onChange: (e) => setPassword(e.target.value),
-            required: true,
-          }}
-        />
-      </div>
+      <FormRow
+        label="Contraseña"
+        inputProps={{
+          name: "password",
+          type: "password",
+          value: formData.password,
+          onChange: handleChange,
+          required: true,
+        }}
+      />
 
       <Button type="submit">Confirmar</Button>
       <ErrorMessage message={error} />

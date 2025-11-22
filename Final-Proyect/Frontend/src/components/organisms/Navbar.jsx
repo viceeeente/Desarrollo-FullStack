@@ -12,14 +12,14 @@ export default function Navbar() {
   useEffect(() => {
     const storedName = localStorage.getItem("userName");
     const logged = localStorage.getItem("isLoggedIn") === "true";
+
     setUserName(storedName || "");
     setIsLoggedIn(logged);
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("userName");
-    window.location.reload(); 
+    localStorage.clear();
+    window.location.reload();
   };
 
   return (
@@ -32,11 +32,8 @@ export default function Navbar() {
         </div>
 
         <DropdownMenu />
-
         <SearchBar />
-
         <AuthButton isLoggedIn={isLoggedIn} onLogout={handleLogout} />
-
         <CartButton />
       </nav>
     </header>
