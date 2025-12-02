@@ -1,13 +1,16 @@
 export default function agregarAlCarrito(producto) {
-  try {
-    const carritoActual = JSON.parse(localStorage.getItem("carrito")) || [];
+  const stored = JSON.parse(localStorage.getItem("carrito")) || [];
 
-    const nuevoCarrito = [...carritoActual, producto];
+  stored.push({
+    id: producto.id,
+    codigo: producto.codigo,
+    nombre: producto.nombre,
+    precio: producto.precio,
+    descripcion: producto.descripcion,
+    categoria: producto.categoria,
+  });
 
-    localStorage.setItem("carrito", JSON.stringify(nuevoCarrito));
+  localStorage.setItem("carrito", JSON.stringify(stored));
 
-    alert(`"${producto.nombre}" agregado al carrito.`);
-  } catch (error) {
-    console.error("Error al agregar al carrito:", error);
-  }
+  alert(`✅ ${producto.nombre} agregado al carrito (${stored.length} items)`);
 }

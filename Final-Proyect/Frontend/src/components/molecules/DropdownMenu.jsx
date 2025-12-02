@@ -5,8 +5,6 @@ import "../../assets/styles/Dropdown.css";
 export default function DropdownMenu() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
-
   const categorias = [
     { name: "Consolas", link: "/consolas" },
     { name: "PC Gamer", link: "/pc" },
@@ -20,14 +18,15 @@ export default function DropdownMenu() {
 
   return (
     <div className="dropdown">
-      <button id="categories-btn" onClick={toggleMenu}>
+      <button id="categories-btn" onClick={() => setIsOpen(!isOpen)}>
         Categorías
       </button>
+
       {isOpen && (
         <ul className="dropdown-menu">
-          {categorias.map((item, i) => (
-            <li key={i}>
-              <Link to={item.link}>{item.name}</Link>
+          {categorias.map((cat, i) => (
+            <li key={i} onClick={() => setIsOpen(false)}>
+              <Link to={cat.link}>{cat.name}</Link>
             </li>
           ))}
         </ul>

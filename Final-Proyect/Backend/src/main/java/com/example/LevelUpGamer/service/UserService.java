@@ -35,4 +35,11 @@ public class UserService {
     public User findByUsername(String username) {
         return userRepository.findByUsername(username).orElse(null);
     }
+
+    public String obtenerRol(String username) {
+        User u = findByUsername(username);
+        return (u != null) ? u.getRol() : null;
+    }
+
+
 }

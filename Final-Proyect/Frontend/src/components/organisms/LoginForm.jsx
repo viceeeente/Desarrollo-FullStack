@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 import FormRow from "../molecules/FormRow";
 import Button from "../atoms/Button";
 import ErrorMessage from "../molecules/ErrorMessage";
@@ -6,6 +8,8 @@ import ErrorMessage from "../molecules/ErrorMessage";
 export default function LoginForm() {
   const [formData, setFormData] = useState({ user: "", password: "" });
   const [error, setError] = useState("");
+  const { login } = useContext(AuthContext);
+  const navigate = useNavigate(); 
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -25,18 +29,19 @@ export default function LoginForm() {
         }),
       });
 
-      if (!res.ok) {
+      const data = await res.json();
+
+      if (!res.ok || data.error) {
         setError("Usuario o contraseña incorrectos");
         return;
       }
 
-      const data = await res.json();
+      login(data.username, data.token, data.rol);
 
-      localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem("userName", data.username);
-      localStorage.setItem("token", data.token);
+      if (data.rol === "ADMIN") navigate("/admin");
+      else if (data.rol === "VENDEDOR") navigate("/vendedor");
+      else navigate("/carrito");
 
-      window.location.href = "/";
     } catch (err) {
       console.error(err);
       setError("Error de conexión con el servidor");
@@ -45,7 +50,7 @@ export default function LoginForm() {
 
   return (
     <form onSubmit={handleSubmit} className="login-form">
-      <h2>Inicia Sesión</h2>
+      <h2 className="text-green-400 text-2xl font-bold mb-4">Inicia Sesión</h2>
 
       <FormRow
         label="Usuario"

@@ -6,6 +6,7 @@ import org.springframework.security.authentication.*;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import java.util.Map;
+import com.example.LevelUpGamer.model.User;
 
 @RestController
 @RequestMapping("/auth")
@@ -55,11 +56,16 @@ public class AuthController {
                     new UsernamePasswordAuthenticationToken(username, password));
 
             if (auth.isAuthenticated()) {
-                String token = jwtService.generateToken(username);
+
+                User usuario = userService.findByUsername(username);
+                if (usuario == null) return Map.of("error", "Usuario no encontrado");
+
+                String token = jwtService.generateToken(usuario.getUsername(), usuario.getRol());
 
                 return Map.of(
-                        "token", token,
-                        "username", username
+                        "username", usuario.getUsername(),
+                        "rol", usuario.getRol(),
+                        "token", token
                 );
             }
 

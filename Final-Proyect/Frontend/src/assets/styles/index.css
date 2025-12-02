@@ -182,3 +182,22 @@ html, body, #root {
 
 
 
+.admin-btn {
+  background-color: #1E90FF;     
+  color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.admin-btn:hover {
+  background-color: #39FF14;    
+  color: black;
+}
+

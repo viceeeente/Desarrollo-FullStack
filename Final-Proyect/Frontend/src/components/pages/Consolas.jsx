@@ -9,7 +9,7 @@ export default function Consolas() {
   const [productos, setProductos] = useState([]);
   const [esDuoc, setEsDuoc] = useState(false);
 
-    useEffect(() => {
+  useEffect(() => {
     document.title = "Consolas | Level Up Gamer";
   }, []);
 

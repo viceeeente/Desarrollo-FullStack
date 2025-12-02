@@ -19,14 +19,16 @@ public class JwtService {
         return Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
     }
 
-    public String generateToken(String username) {
+    public String generateToken(String username, String rol) {
         return Jwts.builder()
                 .subject(username)
+                .claim("rol", rol)
                 .issuedAt(new Date())
                 .expiration(new Date(System.currentTimeMillis() + EXPIRATION))
                 .signWith(getSigningKey(), Jwts.SIG.HS256)
                 .compact();
     }
+
 
     public String extractUsername(String token) {
         try {
@@ -50,7 +52,6 @@ public class JwtService {
                     .parseSignedClaims(token)
                     .getPayload();
 
-            // ⭐ Verificar que no esté expirado
             Date expiration = claims.getExpiration();
             boolean isValid = expiration != null && expiration.after(new Date());
 
