@@ -2,6 +2,7 @@ package com.example.LevelUpGamer.controller;
 
 import com.example.LevelUpGamer.security.jwt.JwtService;
 import com.example.LevelUpGamer.service.UserService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +11,7 @@ import com.example.LevelUpGamer.model.User;
 
 @RestController
 @RequestMapping("/auth")
+@Tag(name = "Auth")
 public class AuthController {
 
     private final AuthenticationManager authManager;

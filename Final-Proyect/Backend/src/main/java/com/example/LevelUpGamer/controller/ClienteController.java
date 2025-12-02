@@ -6,6 +6,7 @@ import com.example.LevelUpGamer.model.User;
 import com.example.LevelUpGamer.repository.BoletaRepository;
 import com.example.LevelUpGamer.repository.ProductoRepository;
 import com.example.LevelUpGamer.repository.UserRepository;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +17,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/cliente")
 @RequiredArgsConstructor
+@Tag(name = "Cliente")
 public class ClienteController {
 
     private final ProductoRepository productRepo;
