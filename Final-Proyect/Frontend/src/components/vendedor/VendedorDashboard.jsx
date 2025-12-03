@@ -33,7 +33,7 @@ export default function VendedorDashboard() {
 
   return (
     <main className="vendedor-main">
-      <h1 className="vendedor-header">Bienvenido, {user.username} (VENDEDOR)</h1>
+      <h1 className="vendedor-header">Bienvenido, {user.username} </h1>
 
       <div className="vendedor-stats-grid">
         <div className="vendedor-stat-card">

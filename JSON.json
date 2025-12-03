@@ -1,0 +1,44 @@
+{
+  "database": "levelupgamer",
+  "tables": [
+    {
+      "name": "usuarios",
+      "columns": [
+        { "name": "id", "type": "BIGINT", "primaryKey": true, "autoIncrement": true },
+        { "name": "nombre", "type": "VARCHAR(100)", "nullable": false },
+        { "name": "email", "type": "VARCHAR(150)", "unique": true, "nullable": false },
+        { "name": "rol", "type": "VARCHAR(50)", "nullable": false },
+        { "name": "password", "type": "VARCHAR(255)", "nullable": false }
+      ]
+    },
+    {
+      "name": "productos",
+      "columns": [
+        { "name": "id", "type": "BIGINT", "primaryKey": true, "autoIncrement": true },
+        { "name": "nombre", "type": "VARCHAR(150)", "nullable": false },
+        { "name": "categoria", "type": "VARCHAR(100)", "nullable": false },
+        { "name": "precio", "type": "DECIMAL(10,2)", "nullable": false },
+        { "name": "stock", "type": "INT", "nullable": false }
+      ]
+    },
+    {
+      "name": "pedidos",
+      "columns": [
+        { "name": "id", "type": "BIGINT", "primaryKey": true, "autoIncrement": true },
+        { "name": "usuario_id", "type": "BIGINT", "foreignKey": "usuarios.id", "nullable": false },
+        { "name": "fecha", "type": "DATETIME", "nullable": false },
+        { "name": "total", "type": "DECIMAL(10,2)", "nullable": false }
+      ]
+    },
+    {
+      "name": "detalle_pedido",
+      "columns": [
+        { "name": "id", "type": "BIGINT", "primaryKey": true, "autoIncrement": true },
+        { "name": "pedido_id", "type": "BIGINT", "foreignKey": "pedidos.id", "nullable": false },
+        { "name": "producto_id", "type": "BIGINT", "foreignKey": "productos.id", "nullable": false },
+        { "name": "cantidad", "type": "INT", "nullable": false },
+        { "name": "precio_unitario", "type": "DECIMAL(10,2)", "nullable": false }
+      ]
+    }
+  ]
+}

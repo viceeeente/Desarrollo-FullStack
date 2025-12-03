@@ -8,7 +8,7 @@ export default function CloseTabButton() {
 
   return (
     <Button className="others-buttons" onClick={handleClick}>
-      Cerrar pestaña
+      Volver a Inicio
     </Button>
   );
 }

@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from "react";
-import "../../assets/styles/admin.css";
+import React, { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import "../../assets/styles/vendedor.css";
 
-export default function ProductosAdmin() {
+export default function ProductosVendedor() {
+  const { user } = useContext(AuthContext);
   const [productos, setProductos] = useState([]);
   const [form, setForm] = useState({ nombre: "", stock: "", precio: "" });
   const [editId, setEditId] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/productos")
+    fetch("http://localhost:8080/api/productos", {
+      headers: { Authorization: `Bearer ${user.token}` }
+    })
       .then(res => res.json())
       .then(data => setProductos(data))
       .catch(() => {});
@@ -22,7 +26,10 @@ export default function ProductosAdmin() {
 
     const res = await fetch("http://localhost:8080/api/productos", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.token}`
+      },
       body: JSON.stringify({
         nombre: form.nombre,
         stock: Number(form.stock),
@@ -32,18 +39,21 @@ export default function ProductosAdmin() {
 
     if (res.ok) {
       const nuevo = await res.json();
-      setProductos([nuevo, ...productos]); 
+      setProductos([nuevo, ...productos]);
       setForm({ nombre: "", stock: "", precio: "" });
     }
   };
 
-  const handleDelete = async id => {
+  const handleDelete = async (id) => {
+    if (!window.confirm("¿Seguro deseas eliminar este producto?")) return;
+
     const res = await fetch(`http://localhost:8080/api/productos/${id}`, {
-      method: "DELETE"
+      method: "DELETE",
+      headers: { Authorization: `Bearer ${user.token}` },
     });
 
     if (res.ok) {
-      setProductos(productos.filter(p => p.id !== id)); 
+      setProductos(productos.filter((p) => p.id !== id));
     }
   };
 
@@ -52,11 +62,15 @@ export default function ProductosAdmin() {
     setForm({ nombre: p.nombre, stock: p.stock, precio: p.precio });
     setEditId(id);
   };
+  
 
   const handleEditSave = async () => {
     const res = await fetch(`http://localhost:8080/api/productos/${editId}`, {
       method: "PUT",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.token}`
+      },
       body: JSON.stringify({
         nombre: form.nombre,
         stock: Number(form.stock),
@@ -73,8 +87,8 @@ export default function ProductosAdmin() {
   };
 
   return (
-    <section className="admin-productos">
-      <h2 className="productos-title">Lista de productos</h2>
+    <section className="vendedor-main">
+      <h2 className="productos-title">Gestión de productos</h2>
 
       <div className="admin-form">
         <input name="nombre" placeholder="Nombre" value={form.nombre} onChange={handleChange} />
@@ -82,13 +96,14 @@ export default function ProductosAdmin() {
         <input name="precio" placeholder="Precio" value={form.precio} onChange={handleChange} />
 
         {editId ? (
-          <button onClick={handleEditSave} className="admin-btn">Guardar</button>
+          <button onClick={handleEditSave} className="vendedor-btn-add">Guardar</button>
         ) : (
-          <button onClick={handleAdd} className="admin-btn">Agregar</button>
+          <button onClick={handleAdd} className="vendedor-btn-add">Agregar</button>
         )}
       </div>
-      <div className="admin-table-container">
-        <table className="admin-table">
+
+      <div className="table-container">
+        <table className="productos-table">
           <thead>
             <tr>
               <th>ID</th><th>Nombre</th><th>Stock</th><th>Precio</th><th>Acciones</th>
@@ -101,9 +116,9 @@ export default function ProductosAdmin() {
                 <td>{p.nombre}</td>
                 <td>{p.stock}</td>
                 <td>${p.precio}</td>
-                <td>
-                  <button onClick={() => handleEditSelect(p.id)} className="admin-btn">Editar</button>
-                  <button onClick={() => handleDelete(p.id)} className="admin-btn">Eliminar</button>
+                <td className="acciones">
+                  <button onClick={() => handleEditSelect(p.id)}>Editar</button>
+                  <button onClick={() => handleDelete(p.id)}>Eliminar</button>
                 </td>
               </tr>
             ))}
