@@ -4,12 +4,14 @@ import com.example.LevelUpGamer.model.Boleta;
 import com.example.LevelUpGamer.model.DetalleBoleta;
 import com.example.LevelUpGamer.repository.BoletaRepository;
 import com.example.LevelUpGamer.repository.DetalleBoletaRepository;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/boletas")
+@Tag(name = "Boleta")
 public class BoletaController {
 
     private final BoletaRepository boletaRepo;

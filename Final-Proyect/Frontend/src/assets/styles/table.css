@@ -1,0 +1,37 @@
+.table-container {
+  overflow-x: auto;
+}
+
+.productos-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #060606;
+}
+
+.productos-table th,
+.productos-table td {
+  padding: 12px;
+  border-bottom: 1px solid #111;
+}
+
+.acciones {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.acciones button {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  background: #111;
+  color: #0f0;
+  border: 1px solid #0f0;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.acciones button:hover {
+  background: #0f0;
+  color: black;
+}

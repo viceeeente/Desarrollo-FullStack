@@ -17,18 +17,20 @@ export default function ProductosVendedor() {
 
   const cargarProductos = () => {
     fetch("http://localhost:8080/api/productos", {
-      headers: { Authorization: `Bearer ${user.token}` }
+      headers: { Authorization: `Bearer ${user.token}` },
     })
-    .then(res => res.json())
-    .then(data => setProductos(data))
-    .catch(() => setProductos([]));
+      .then((res) => res.json())
+      .then((data) => setProductos(data))
+      .catch(() => setProductos([]));
   };
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleAdd = async () => {
+    if (!form.nombre || !form.stock || !form.precio) return;
+
     const res = await fetch("http://localhost:8080/api/productos", {
       method: "POST",
       headers: {
@@ -37,7 +39,7 @@ export default function ProductosVendedor() {
       },
       body: JSON.stringify({
         nombre: form.nombre,
-        stock: Number(form.hora),
+        stock: Number(form.stock),   // corregido: antes estaba `form.hora`
         precio: Number(form.precio),
       }),
     });
@@ -49,8 +51,8 @@ export default function ProductosVendedor() {
     }
   };
 
-  const handleEditSelect = id => {
-    const p = productos.find(prod => prod.id === id);
+  const handleEditSelect = (id) => {
+    const p = productos.find((prod) => prod.id === id);
     setForm({ nombre: p.nombre, stock: p.stock, precio: p.precio });
     setEditId(id);
   };
@@ -71,7 +73,7 @@ export default function ProductosVendedor() {
 
     if (res.ok) {
       const actualizado = await res.json();
-      setProductos(productos.map(p => (p.id === editId ? actualizado : p)));
+      setProductos(productos.map((p) => (p.id === editId ? actualizado : p)));
       setEditId(null);
       setForm({ nombre: "", stock: "", precio: "" });
     }
@@ -82,31 +84,49 @@ export default function ProductosVendedor() {
 
     const res = await fetch(`http://localhost:8080/api/productos/${id}`, {
       method: "DELETE",
-      headers: { Authorization: `Bearer ${user.token}` }
+      headers: { Authorization: `Bearer ${user.token}` },
     });
 
     if (res.ok) {
-      setProductos(productos.filter(p => p.id !== id));
+      setProductos(productos.filter((p) => p.id !== id));
     }
   };
 
   return (
-    <section className="w-full max-w-5xl">
-      <h2 className="products-title">Gestión de Productos</h2>
+    <section className="vendedor-main">
+      <h2 className="productos-title">Gestión de productos</h2>
 
-      <div className="admin-form flex gap-4 mb-6">
-        <input name="nombre" placeholder="Nombre" value={form.nombre} onChange={handleChange}/>
-        <input name="stock" placeholder="Stock" value={form.stock} onChange={handleChange}/>
-        <input name="precio" placeholder="Precio" value={form.precio} onChange={handleChange}/>
+      <div className="admin-form">
+        <input name="nombre" placeholder="Nombre" value={form.nombre} onChange={handleChange} />
+        <input name="stock" placeholder="Stock" value={form.stock} onChange={handleChange} />
+        <input name="precio" placeholder="Precio" value={form.precio} onChange={handleChange} />
 
         {editId ? (
-          <button onClick={handleEditSave} className="admin-btn save">Guardar</button>
+          <button onClick={handleEditSave} className="vendedor-btn-add">Guardar</button>
         ) : (
-          <button onClick={handleAdd} className="admin-btn add">Agregar</button>
+          <button onClick={handleAdd} className="vendedor-btn-add">Agregar</button>
         )}
       </div>
 
-      <ProductsTable productos={productos} onEdit={handleEditSelect} onDelete={handleDelete}/>
+      <div className="table-container">
+        <table className="productos-table">
+          <thead>
+            <tr>
+              <th>ID</th><th>Nombre</th><th>Stock</th><th>Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            {productos.map(p => (
+              <tr key={p.id}>
+                <td>{p.id}</td>
+                <td>{p.nombre}</td>
+                <td>{p.stock}</td>
+                <td>${p.precio}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </section>
   );
 }

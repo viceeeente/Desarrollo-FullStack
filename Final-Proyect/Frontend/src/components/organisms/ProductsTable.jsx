@@ -1,15 +1,17 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import "../../assets/styles/table.css";
 
 export default function ProductsTable({ productos = [], onEdit, onDelete }) {
-  const navigate = useNavigate();
-
   return (
     <div className="table-container">
       <table className="products-table">
         <thead>
           <tr>
-            <th>#</th><th>Nombre</th><th>Stock</th><th>Precio</th><th>Acciones</th>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Stock</th>
+            <th>Precio</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>

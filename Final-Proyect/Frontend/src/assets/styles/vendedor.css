@@ -48,72 +48,6 @@
 .vendedor-main {
   flex: 1;
   padding: 24px;
-}
-
-.productos-title {
-  font-size: 24px;
-  margin-bottom: 16px;
-  border-bottom: 2px solid #0f0;
-  padding-bottom: 4px;
-}
-
-.vendedor-btn-add {
-  background: #0f0;
-  color: black;
-  font-weight: bold;
-  padding: 8px 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  margin: 10px 0 20px 0;
-  transition: 0.3s;
-}
-
-.vendedor-btn-add:hover {
-  transform: scale(1.05);
-  opacity: 0.8;
-}
-
-.table-container {
-  overflow-x: auto;
-}
-
-.productos-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: #060606;
-}
-
-.productos-table th,
-.productos-table td {
-  padding: 12px;
-  border-bottom: 1px solid #111;
-}
-
-.acciones {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.acciones button {
-  padding: 6px 14px;
-  border-radius: 6px;
-  font-weight: bold;
-  background: #111;
-  color: #0f0;
-  border: 1px solid #0f0;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.acciones button:hover {
-  background: #0f0;
-  color: black;
-}
-
-.vendedor-main {
-  flex: 1;
-  padding: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -162,4 +96,20 @@
   font-size: 32px;
   font-weight: bold;
   color: #0f0;
+}
+
+.vendedor-btn-add {
+  background: #0f0;
+  color: black;
+  font-weight: bold;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 10px 0 20px 0;
+  transition: 0.3s;
+}
+
+.vendedor-btn-add:hover {
+  transform: scale(1.05);
+  opacity: 0.8;
 }

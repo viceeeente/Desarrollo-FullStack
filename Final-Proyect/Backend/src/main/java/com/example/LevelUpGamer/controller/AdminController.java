@@ -4,6 +4,7 @@ import com.example.LevelUpGamer.model.Boleta;
 import com.example.LevelUpGamer.model.Producto;
 import com.example.LevelUpGamer.repository.BoletaRepository;
 import com.example.LevelUpGamer.repository.ProductoRepository;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/admin")
+@Tag(name = "Admin")
 @RequiredArgsConstructor
 public class AdminController {
 
