@@ -40,7 +40,7 @@ export default function LoginForm() {
 
       if (data.rol === "ADMIN") navigate("/admin");
       else if (data.rol === "VENDEDOR") navigate("/vendedor");
-      else navigate("/carrito");
+      else navigate("/");
 
     } catch (err) {
       console.error(err);
